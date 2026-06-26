@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notifications | Scholarship Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "inverse-primary": "#c3c0ff",
+                    "tertiary-fixed": "#ffddb8",
+                    "primary": "#3525cd",
+                    "primary-container": "#4f46e5",
+                    "on-secondary-container": "#00714d",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "surface-tint": "#4d44e3",
+                    "secondary-container": "#6cf8bb",
+                    "on-secondary-fixed": "#002113",
+                    "surface": "#f8f9ff",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-container": "#dad7ff",
+                    "surface-dim": "#cbdbf5",
+                    "on-tertiary-container": "#ffd4a4",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#c7c4d8",
+                    "tertiary": "#684000",
+                    "on-surface-variant": "#464555",
+                    "on-surface": "#0b1c30",
+                    "surface-bright": "#f8f9ff",
+                    "primary-fixed": "#e2dfff",
+                    "on-primary": "#ffffff",
+                    "on-background": "#0b1c30",
+                    "inverse-surface": "#213145",
+                    "on-primary-fixed": "#0f0069",
+                    "on-secondary-fixed-variant": "#005236",
+                    "outline": "#777587",
+                    "background": "#f8f9ff",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "surface-container-high": "#dce9ff",
+                    "surface-container": "#e5eeff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#2a1700",
+                    "secondary-fixed-dim": "#4edea3",
+                    "secondary": "#006c49",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#6ffbbe",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "tertiary-container": "#885500",
+                    "surface-variant": "#d3e4fe",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "base": "4px",
+                    "container-max": "1280px",
+                    "xxl": "48px",
+                    "xl": "32px",
+                    "gutter": "24px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "title-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .notification-card { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+        .notification-card:hover { transform: translateY(-2px); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Desktop Sidebar -->
+<aside class="h-screen w-64 fixed left-0 top-0 hidden md:flex flex-col bg-surface dark:bg-on-background shadow-sm z-50">
+<div class="flex flex-col h-full py-xl px-md">
+<div class="mb-xxl px-sm">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Scholarship Portal</h1>
+<p class="text-label-md font-label-md text-on-surface-variant">The Guiding Expert</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-md px-sm py-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-sm py-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-body-md text-body-md">My Matches</span>
+</a>
+<a class="flex items-center gap-md px-sm py-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-body-md text-body-md">Saved</span>
+</a>
+<a class="flex items-center gap-md px-sm py-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-body-md text-body-md">Applications</span>
+</a>
+<a class="flex items-center gap-md px-sm py-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-body-md text-body-md">Profile</span>
+</a>
+<!-- ACTIVE STATE -->
+<a class="flex items-center gap-md px-sm py-md rounded-xl text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary dark:border-primary-fixed-dim bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="font-body-md text-body-md">Notifications</span>
+</a>
+<a class="flex items-center gap-md px-sm py-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md text-body-md">Help</span>
+</a>
+</nav>
+<div class="mt-auto pt-xl border-t border-outline-variant/30 px-sm flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a university student with a warm, confident expression, wearing a navy blazer over a crisp white shirt, against a soft-focus academic library background. The lighting is bright and airy, reflecting a high-quality light-mode UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-LVzyKYMuFNutLwFOFRGaRi_4KlrDtwmZ84dLI0QYVPLKAVrUXBtkWZCkMH_djE3qS04g1ZOi1eOFOXLoi9cghhHF8KxNkO7IPbYFiCLEBVI8r_jbP9lHC6wW1B0XVrgEkmxiUFeaS7UPl7OkrnHGPlB_6V8M7apmgAtVRPl46PGelIT7ZST8vD_K0hK_NBmMMthmaupoKR8JfvcZ7dj9ckvRD2ncPwYXlKS4VZApvakqC4nDGGfNzXQ2N05atI1kom8_kvocgZlI"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold">Alex Rivera</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Class of 2025</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-64 min-h-screen pb-xxl">
+<!-- Top App Bar (Mobile) -->
+<header class="docked full-width top-0 sticky z-40 bg-surface shadow-sm md:hidden">
+<div class="flex justify-between items-center w-full px-margin-mobile py-md">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-black text-primary">Notifications</span>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<div class="w-8 h-8 rounded-full bg-primary-fixed overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of a professional student profile avatar icon, featuring a young adult with glasses and a friendly smile, styled for a modern academic web application. The background is a clean, neutral gradient of soft blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4NwHEBwoWVY-R0TKMBZ_wKLMQuPm1hf9iaksbc9liWkGYISIRHFVW-nb30XX2UqxV50jLzJ-7Z3Aw14l97vFidvBES_uzZYIG9aWpR3w2K69mJpX91tkwghhUakMXxCQgbwgFSGJ_zj0jjyRJ35ufK3W2shQiv7bcY2iVDUJcZ5sHJzbt5c5g6ZqQ8B4SDR-ceQOvnUCDAoL2u-i9IYA-h-U-EZ7-K2VfMpwr9FOG-A9Hxjt8m8-f2G6Mg6sBOI1EBUn0_LB-RkWW"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Centered Container -->
+<div class="max-w-[680px] mx-auto px-margin-mobile md:px-0 pt-xl">
+<!-- Header Section -->
+<div class="flex items-center justify-between mb-lg">
+<h2 class="hidden md:block font-headline-lg text-headline-lg text-on-surface">Notifications</h2>
+<button class="text-primary font-label-md hover:bg-primary/5 px-md py-sm rounded-lg transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+                    Mark all as read
+                </button>
+</div>
+<!-- Filter Tabs -->
+<div class="flex gap-sm mb-xl overflow-x-auto no-scrollbar pb-sm">
+<button class="bg-primary text-on-primary px-lg py-sm rounded-full font-label-md whitespace-nowrap">All</button>
+<button class="bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full font-label-md whitespace-nowrap hover:bg-surface-container-highest transition-colors">Deadlines</button>
+<button class="bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full font-label-md whitespace-nowrap hover:bg-surface-container-highest transition-colors">Matches</button>
+<button class="bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full font-label-md whitespace-nowrap hover:bg-surface-container-highest transition-colors">Applications</button>
+<button class="bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full font-label-md whitespace-nowrap hover:bg-surface-container-highest transition-colors">System</button>
+</div>
+<!-- Notification Feed -->
+<div class="space-y-xl">
+<!-- Group: Today -->
+<section>
+<h3 class="font-label-md text-on-surface-variant uppercase tracking-wider mb-md">Today</h3>
+<div class="space-y-sm">
+<!-- Deadline Alert -->
+<div class="notification-card bg-surface-container-lowest p-md rounded-xl shadow-sm border-l-4 border-error flex gap-md cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Deadline in 2 days</h4>
+<span class="font-label-sm text-on-surface-variant whitespace-nowrap">2h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Application deadline for the Stanford Global Award is approaching on Oct 15th. Complete your essay now.</p>
+</div>
+</div>
+<!-- Match found -->
+<div class="notification-card bg-surface-container-lowest p-md rounded-xl shadow-sm border-l-4 border-secondary flex gap-md cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface truncate">New match found</h4>
+<span class="font-label-sm text-on-surface-variant whitespace-nowrap">5h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Google Generation Scholarship: You meet 100% of the criteria for this $10,000 award. View details.</p>
+</div>
+</div>
+<!-- System update -->
+<div class="notification-card bg-surface-container-lowest p-md rounded-xl shadow-sm border-l-4 border-outline flex gap-md cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">settings_suggest</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Profile almost complete</h4>
+<span class="font-label-sm text-on-surface-variant whitespace-nowrap">8h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Your profile is 85% complete. Add your latest test scores to unlock 15 more high-value matches.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Group: Yesterday -->
+<section>
+<h3 class="font-label-md text-on-surface-variant uppercase tracking-wider mb-md">Yesterday</h3>
+<div class="space-y-sm">
+<!-- Application Review -->
+<div class="notification-card bg-surface-container-lowest p-md rounded-xl shadow-sm border-l-4 border-primary flex gap-md cursor-pointer opacity-80">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Status: Under Review</h4>
+<span class="font-label-sm text-on-surface-variant whitespace-nowrap">Yesterday</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Your application for the Oxford Excellence Grant has moved to the review phase. Expected decision by Dec 1st.</p>
+</div>
+</div>
+<!-- Match found -->
+<div class="notification-card bg-surface-container-lowest p-md rounded-xl shadow-sm border-l-4 border-transparent flex gap-md cursor-pointer opacity-60">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface truncate">New match found</h4>
+<span class="font-label-sm text-on-surface-variant whitespace-nowrap">Yesterday</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">National STEM Grant ($5,000): Based on your major and GPA, you're a top candidate.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Group: Earlier this week -->
+<section>
+<h3 class="font-label-md text-on-surface-variant uppercase tracking-wider mb-md">Earlier this week</h3>
+<div class="space-y-sm">
+<!-- Application Approved? -->
+<div class="notification-card bg-surface-container-lowest p-md rounded-xl shadow-sm border-l-4 border-secondary flex gap-md cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Document Verified</h4>
+<span class="font-label-sm text-on-surface-variant whitespace-nowrap">3 days ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Your official transcripts have been verified and added to your common application profile.</p>
+</div>
+</div>
+<!-- Deadline Alert -->
+<div class="notification-card bg-surface-container-lowest p-md rounded-xl shadow-sm border-l-4 border-transparent flex gap-md cursor-pointer opacity-60">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">notifications_off</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Deadline Passed</h4>
+<span class="font-label-sm text-on-surface-variant whitespace-nowrap">4 days ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">The Merit-Based Arts Scholarship is no longer accepting applications. Look for similar matches.</p>
+</div>
+</div>
+<!-- Application Blue Check -->
+<div class="notification-card bg-surface-container-lowest p-md rounded-xl shadow-sm border-l-4 border-primary flex gap-md cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">article</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Recommendation Received</h4>
+<span class="font-label-sm text-on-surface-variant whitespace-nowrap">5 days ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Dr. Sarah Thompson has submitted a letter of recommendation for your Harvard Global Scholar application.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Group: Older -->
+<section>
+<h3 class="font-label-md text-on-surface-variant uppercase tracking-wider mb-md">Older</h3>
+<div class="space-y-sm">
+<!-- Match found -->
+<div class="notification-card bg-surface-container-lowest p-md rounded-xl shadow-sm border-l-4 border-transparent flex gap-md cursor-pointer opacity-60">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface truncate">12 New Matches</h4>
+<span class="font-label-sm text-on-surface-variant whitespace-nowrap">1 week ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">We found 12 new scholarships matching your criteria for "International Relations" and "Community Service".</p>
+</div>
+</div>
+<!-- System update -->
+<div class="notification-card bg-surface-container-lowest p-md rounded-xl shadow-sm border-l-4 border-transparent flex gap-md cursor-pointer opacity-60">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Security Update</h4>
+<span class="font-label-sm text-on-surface-variant whitespace-nowrap">1 week ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Your login activity was detected from a new browser in New York, NY. If this wasn't you, please change your password.</p>
+</div>
+</div>
+<!-- Match -->
+<div class="notification-card bg-surface-container-lowest p-md rounded-xl shadow-sm border-l-4 border-transparent flex gap-md cursor-pointer opacity-60">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Quarterly Opportunity Match</h4>
+<span class="font-label-sm text-on-surface-variant whitespace-nowrap">2 weeks ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">The Spring 2024 Fellowship cohort is now open for matching. Update your profile to see if you qualify.</p>
+</div>
+</div>
+<!-- Application -->
+<div class="notification-card bg-surface-container-lowest p-md rounded-xl shadow-sm border-l-4 border-transparent flex gap-md cursor-pointer opacity-60">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Draft Saved</h4>
+<span class="font-label-sm text-on-surface-variant whitespace-nowrap">2 weeks ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">We've saved your draft for the "Future Leaders" application. Pick up where you left off!</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Link -->
+<div class="mt-xxl py-xl text-center">
+<a class="text-on-surface-variant hover:text-primary font-label-md flex items-center justify-center gap-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+                    Notification preferences
+                </a>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom Navigation -->
+<nav class="fixed bottom-0 w-full z-50 md:hidden bg-surface dark:bg-on-background shadow-[0_-1px_3px_0_rgba(0,0,0,0.1)] flex justify-around items-center px-margin-mobile py-sm">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-sm text-label-sm">Matches</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="font-label-sm text-label-sm">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for notification clicks
+        document.querySelectorAll('.notification-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.opacity = '0.6';
+                card.classList.remove('border-l-4');
+                card.style.borderLeft = '4px solid transparent';
+            });
+        });
+
+        // Simple filter toggle effect
+        const filters = document.querySelectorAll('.flex.gap-sm button');
+        filters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                filters.forEach(f => {
+                    f.classList.remove('bg-primary', 'text-on-primary');
+                    f.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+                });
+                filter.classList.add('bg-primary', 'text-on-primary');
+                filter.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>
+
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="index.html">Previous</a>
+</nav>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ScholarPath - Check Your Inbox</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "on-secondary-fixed": "#002113",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "primary-fixed": "#e2dfff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "tertiary-fixed": "#ffddb8",
+                    "surface-container-low": "#eff4ff",
+                    "surface-container": "#e5eeff",
+                    "surface": "#f8f9ff",
+                    "on-surface": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "primary": "#3525cd",
+                    "on-primary-fixed": "#0f0069",
+                    "primary-container": "#4f46e5",
+                    "surface-tint": "#4d44e3",
+                    "surface-container-highest": "#d3e4fe",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#6ffbbe",
+                    "secondary": "#006c49",
+                    "outline": "#777587",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#6cf8bb",
+                    "inverse-primary": "#c3c0ff",
+                    "tertiary-container": "#885500",
+                    "surface-container-high": "#dce9ff",
+                    "on-surface-variant": "#464555",
+                    "on-secondary-container": "#00714d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ffd4a4",
+                    "outline-variant": "#c7c4d8",
+                    "surface-variant": "#d3e4fe",
+                    "surface-dim": "#cbdbf5",
+                    "on-tertiary-fixed": "#2a1700",
+                    "inverse-surface": "#213145",
+                    "tertiary": "#684000",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-container": "#dad7ff",
+                    "on-error-container": "#93000a",
+                    "on-background": "#0b1c30",
+                    "error-container": "#ffdad6",
+                    "background": "#f8f9ff",
+                    "on-secondary-fixed-variant": "#005236"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "xl": "32px",
+                    "base": "4px",
+                    "container-max": "1280px",
+                    "xxl": "48px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "title-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9; /* Light gray background specified in prompt */
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .animate-check {
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+        @keyframes stroke {
+            100% { stroke-dashoffset: 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-gutter">
+<!-- Main Content Canvas -->
+<main class="w-full flex justify-center">
+<!-- Centered Card -->
+<div class="bg-surface-container-lowest w-full max-w-[400px] rounded-xl shadow-sm p-xxl flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg">
+<!-- Success Icon Container -->
+<div class="mb-xl w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined !text-[40px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Heading -->
+<h1 class="font-headline-md text-headline-md text-on-surface mb-sm">
+                Check your inbox
+            </h1>
+<!-- Subtext -->
+<p class="font-body-md text-body-md text-on-surface-variant mb-xl px-sm">
+                We've sent a link to <span class="font-semibold text-on-surface">user@example.com</span>. It expires in 15 minutes.
+            </p>
+<!-- Action Buttons Area -->
+<div class="w-full space-y-md">
+<!-- Back to Sign In Link (Implicit UX) -->
+<a class="inline-flex items-center gap-xs font-label-md text-label-md text-primary hover:text-on-primary-fixed-variant transition-colors group" href="#">
+<span class="material-symbols-outlined !text-[18px] group-hover:-translate-x-1 transition-transform" data-icon="arrow_back">arrow_back</span>
+                    Back to Sign In
+                </a>
+<!-- Resend Section -->
+<div class="pt-xl border-t border-outline-variant w-full">
+<p class="font-label-md text-label-md text-outline mb-sm">Didn't receive an email?</p>
+<button class="w-full flex items-center justify-center gap-sm px-lg py-sm rounded-lg bg-surface-container-high text-outline font-title-md transition-all cursor-not-allowed" disabled="" id="resendButton">
+<span class="material-symbols-outlined !text-[20px]" data-icon="refresh">refresh</span>
+                        Resend
+                        <span class="ml-auto font-mono text-label-md tabular-nums bg-surface-container-highest px-sm py-0.5 rounded" id="timer">30s</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Segment (Suppressed full footer as per Task-Focused/Transactional rule, but keeping branding) -->
+<div class="fixed bottom-xl left-1/2 -translate-x-1/2 text-center w-full">
+<p class="font-label-md text-label-md text-outline">
+            © 2024 ScholarPath. All rights reserved.
+        </p>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const resendButton = document.getElementById('resendButton');
+            const timerDisplay = document.getElementById('timer');
+            let timeLeft = 30;
+
+            const updateTimer = () => {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    timerDisplay.textContent = `${timeLeft}s`;
+                    setTimeout(updateTimer, 1000);
+                } else {
+                    // Re-enable state
+                    resendButton.disabled = false;
+                    resendButton.classList.remove('bg-surface-container-high', 'text-outline', 'cursor-not-allowed');
+                    resendButton.classList.add('bg-primary-container', 'text-on-primary', 'hover:bg-primary', 'active:scale-95', 'cursor-pointer', 'shadow-sm');
+                    timerDisplay.style.display = 'none';
+                }
+            };
+
+            // Start countdown
+            updateTimer();
+
+            // Handle resend click
+            resendButton.addEventListener('click', () => {
+                if (!resendButton.disabled) {
+                    // Reset visual state
+                    timeLeft = 30;
+                    timerDisplay.style.display = 'inline-block';
+                    timerDisplay.textContent = `30s`;
+                    resendButton.disabled = true;
+                    resendButton.classList.add('bg-surface-container-high', 'text-outline', 'cursor-not-allowed');
+                    resendButton.classList.remove('bg-primary-container', 'text-on-primary', 'hover:bg-primary', 'active:scale-95', 'shadow-sm');
+
+                    // Logic to simulate re-sending
+                    console.log('Resending verification email...');
+                    updateTimer();
+                }
+            });
+        });
+    </script>
+</body></html>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="index.html">Previous</a>
+    <a href="twelve.html">Next</a>
+</nav>

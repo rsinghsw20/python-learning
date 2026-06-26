@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_17 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_17" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_17');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  (function() {
+  const container = document.getElementById('threejs-container-ANIMATION_SUCCESS');
+  if (!container) return;
+
+  const width = container.clientWidth || 400;
+  const height = container.clientHeight || 400;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(width, height);
+  container.appendChild(renderer.domElement);
+
+  // Create a stylized checkmark
+  const checkShape = new THREE.Shape();
+  checkShape.moveTo(-1, 0);
+  checkShape.lineTo(-0.4, -0.6);
+  checkShape.lineTo(1, 0.8);
+  checkShape.lineTo(0.8, 1);
+  checkShape.lineTo(-0.4, -0.2);
+  checkShape.lineTo(-0.8, 0.2);
+  checkShape.closePath();
+
+  const extrudeSettings = { depth: 0.2, bevelEnabled: true, bevelThickness: 0.1, bevelSize: 0.1 };
+  const geometry = new THREE.ExtrudeGeometry(checkShape, extrudeSettings);
+  const material = new THREE.MeshPhongMaterial({
+    color: 0x4f46e5,
+    shininess: 100,
+    specular: 0x6366f1
+  });
+
+  const checkmark = new THREE.Mesh(geometry, material);
+  scene.add(checkmark);
+
+  // Ring background
+  const ringGeo = new THREE.TorusGeometry(1.5, 0.05, 16, 100);
+  const ringMat = new THREE.MeshBasicMaterial({ color: 0x4f46e5, transparent: true, opacity: 0.3 });
+  const ring = new THREE.Mesh(ringGeo, ringMat);
+  scene.add(ring);
+
+  const light = new THREE.DirectionalLight(0xffffff, 1.5);
+  light.position.set(2, 2, 5);
+  scene.add(light);
+  scene.add(new THREE.AmbientLight(0x404040));
+
+  camera.position.z = 4;
+
+  let startTime = Date.now();
+
+  function animate() {
+    requestAnimationFrame(animate);
+    const elapsed = (Date.now() - startTime) / 1000;
+
+    checkmark.rotation.y = Math.sin(elapsed) * 0.2;
+    checkmark.position.y = Math.sin(elapsed * 2) * 0.1;
+
+    ring.rotation.z += 0.01;
+    ring.scale.setScalar(1 + Math.sin(elapsed * 2) * 0.05);
+
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  });
+
+  animate();
+})();
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_17 -->
+</body>
+</html>
+
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="index.html">Previous</a>
+    <a href="thirteen.html">Next</a>
+</nav>

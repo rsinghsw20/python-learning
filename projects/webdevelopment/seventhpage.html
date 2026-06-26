@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scholarship Guides &amp; News | ScholarPath</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#885500",
+                        "background": "#f8f9ff",
+                        "secondary": "#006c49",
+                        "primary": "#3525cd",
+                        "on-tertiary-fixed": "#2a1700",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-background": "#0b1c30",
+                        "surface-container": "#e5eeff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#4d44e3",
+                        "outline-variant": "#c7c4d8",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#0f0069",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#c3c0ff",
+                        "surface-variant": "#d3e4fe",
+                        "surface-dim": "#cbdbf5",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-container-high": "#dce9ff",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "outline": "#777587",
+                        "tertiary": "#684000",
+                        "surface-container-low": "#eff4ff",
+                        "surface-bright": "#f8f9ff",
+                        "surface": "#f8f9ff",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-surface": "#0b1c30",
+                        "on-secondary-container": "#00714d",
+                        "secondary-container": "#6cf8bb",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary-fixed": "#e2dfff",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "inverse-surface": "#213145",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#ffd4a4",
+                        "on-primary-container": "#dad7ff",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "primary-container": "#4f46e5",
+                        "tertiary-fixed": "#ffddb8",
+                        "on-surface-variant": "#464555",
+                        "on-secondary-fixed": "#002113",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "md": "16px",
+                        "xxl": "48px",
+                        "gutter": "24px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "base": "4px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+        .active-tab {
+            position: relative;
+        }
+        .active-tab::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #3525cd;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar (JSON Anchor) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface shadow-sm h-16 flex items-center">
+<nav class="max-w-container-max mx-auto w-full px-lg flex justify-between items-center">
+<div class="flex items-center gap-xl">
+<span class="text-title-lg font-title-lg font-bold text-primary">ScholarPath</span>
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-primary border-b-2 border-primary pb-1 font-title-md text-title-md" href="#">Find Scholarships</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">My Applications</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Profile</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-body-md focus:ring-2 focus:ring-primary focus:outline-none w-64" placeholder="Search guides..." type="text"/>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="flex-grow pt-xxl">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-lg mt-xl">
+<div class="flex flex-col gap-sm">
+<h1 class="text-headline-lg font-headline-lg text-on-background tracking-tight">Scholarship guides &amp; news</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Expert advice to help you fund your study abroad dream</p>
+</div>
+<!-- Category Filter Pills -->
+<div class="mt-xl flex flex-wrap gap-sm">
+<button class="px-md py-sm rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm">All</button>
+<button class="px-md py-sm rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:border-primary hover:text-primary transition-all">USA Scholarships</button>
+<button class="px-md py-sm rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:border-primary hover:text-primary transition-all">UK Scholarships</button>
+<button class="px-md py-sm rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:border-primary hover:text-primary transition-all">Canada</button>
+<button class="px-md py-sm rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:border-primary hover:text-primary transition-all">Application Tips</button>
+<button class="px-md py-sm rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:border-primary hover:text-primary transition-all">Visa &amp; Loans</button>
+<button class="px-md py-sm rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:border-primary hover:text-primary transition-all">Student Stories</button>
+</div>
+</section>
+<!-- Featured Post Section -->
+<section class="max-w-container-max mx-auto px-lg mt-xxl">
+<div class="relative group overflow-hidden rounded-xl bg-surface-container-lowest border border-outline-variant shadow-sm flex flex-col md:flex-row transition-all hover:shadow-md">
+<div class="md:w-1/2 h-64 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-fidelity cinematic photograph of a diverse group of college students walking across a prestigious, sun-drenched university campus with gothic architecture. The lighting is golden and warm, suggesting a hopeful and successful academic future. The overall aesthetic is professional, modern, and high-contrast, utilizing the primary indigo and soft white palette of the ScholarPath brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6Iyt1Syl_kIHVklAZNJbhqRdNedfaHQH8LLgzxf3mooqn1V2LUEdq2OAlmfZi51_mcasOQdRGaj2CCPLq2ZGlQ7cLpI4gI4rvmh2lIHycTMIdZAhCGTDmTN8z4MzEoiXpBmaMJRHwSGcsq9wpOmhLzsTcN6yBTFpdfwlEk92_E68sQE1P_BCrs9169T2Y0YMSLuG3D1GtFORqorMzKJVtJLZtRhlYxhnBzOPS2b9A8P8VubkKD3dHjagh3TZpmDNr9bso0cXNPcaD"/>
+</div>
+<div class="md:w-1/2 p-xl flex flex-col justify-center gap-md">
+<span class="inline-flex px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-label-md font-label-md self-start">Expert Guide</span>
+<h2 class="text-headline-md font-headline-md text-on-background group-hover:text-primary transition-colors">How to Secure a Full Ride Scholarship in 2024</h2>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-2">Securing a full-ride scholarship requires more than just high grades. Learn the step-by-step strategy to stand out in the most competitive application pools globally.</p>
+<div class="flex items-center justify-between mt-md">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a woman in her 30s with a warm, encouraging smile, representing Sarah Jenkins, an expert academic advisor. She is dressed in smart casual professional attire against a clean, minimalist office background with soft lighting, reflecting the professional and trustworthy ScholarPath brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMQjfKlTHLiYidEedY6W0t7dKoItdzpzxr6kBBCWmAc8sGPbyN5KAerFs7HqAIrXW3gcURgnatrWsQJYpksghU7UBmADYsYDi-xJvMxNBe0Qy2FzZ6A6-19Ma6ro78F1SG2CdNpDfcS1S1uzHv0Qm8hysHw9dtZA9NF4JBX6kyE1UJb9WCJ9NoTV36LlkGxVIToF5jZLxXeKoVptrspAPdDK0StFgH4oPbtwhyJfTkYLXqG_K435pNepJj6U20XwdUC7eW1tCA7RKJ"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-bold text-on-background">Sarah Jenkins</span>
+<span class="text-label-sm text-outline">Oct 24, 2023</span>
+</div>
+</div>
+<a class="text-primary font-bold flex items-center gap-xs hover:gap-sm transition-all" href="#">
+                            Read more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content + Sidebar Grid -->
+<section class="max-w-container-max mx-auto px-lg mt-xxl grid grid-cols-1 lg:grid-cols-12 gap-xxl">
+<!-- Posts Grid (8 Columns) -->
+<div class="lg:col-span-8 flex flex-col gap-xxl">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden bento-hover transition-all flex flex-col">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A modern minimalist photography of the Parliament Hill in Canada under a clear blue sky, emphasizing the scholarship opportunities in the region. The colors are crisp, with a focus on vibrant greens and the clean architecture, framed in a way that feels professional and inviting for international students." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDERpzKJrdppC2LiAfxGqr-O-AGbo1uSG7bMh1mKRzkkNn6wAraVfwuUa5eR7shYoJXX4gBbZIrVh6GFrK5R9NOb6-1DZTWTQkZi4l0YumKnb_bE0jyRWKPDhZQyiWIO-vCx_8Pce1qmdT_AAk7weGJHDxhFXh6iOSAJRFQy1FgmChEudpTahaMVXjZGmalYhUZ6eC10u4ieX2YKw8ti_EJviaiAOQWHOsQ6525yTreoMADWvjwlOyV-5YO4aUJ3qRWXWSOYAxrWztX"/>
+</div>
+<div class="p-lg flex flex-col flex-grow gap-sm">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Canada</span>
+<h3 class="text-title-md font-title-md text-on-surface">Top 10 Canada Scholarships for International Students</h3>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-2">Explore the best funded opportunities in the Great White North for the upcoming academic year.</p>
+<div class="mt-auto pt-md flex items-center justify-between border-t border-outline-variant">
+<span class="text-label-sm text-outline flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">schedule</span> 5 min read</span>
+<a class="text-primary font-label-md flex items-center gap-xs" href="#">Read <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden bento-hover transition-all flex flex-col">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, flat-lay photograph of a student's desk featuring a laptop showing a visa application form, a passport, and a neatly written to-do list. The lighting is soft and natural, emphasizing a calm and organized application process. Palette follows the ScholarPath theme with subtle indigo and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtNOncV5nFu0_x8KGfUJtXbGcV6iA6SbaibZnjdhfIYGh1fLh-sRJ85ZokVIbJGbGv2LoUrd0qDXhALybmyLpZNjkKk_wf2fftMmCqiQ2rGF7O8DeOwnuQeSFTwdWccASNL1Ei806gdejy1h0tdLYnT6btRtdS3qTgZ9GXXA50GjxxvJEeS38W6PmZBdK-ibH2tFK6sbSo6yWUqoqTMUhW3ScPCieRqILueijT02ZalraXmJwUMraQeTqk32FbXHOxfqUT1Ke4mppK"/>
+</div>
+<div class="p-lg flex flex-col flex-grow gap-sm">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Visa Tips</span>
+<h3 class="text-title-md font-title-md text-on-surface">Mastering the F1 Visa Interview: Common Pitfalls</h3>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-2">Expert advice on what to say and what to avoid during your crucial student visa appointment.</p>
+<div class="mt-auto pt-md flex items-center justify-between border-t border-outline-variant">
+<span class="text-label-sm text-outline flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">schedule</span> 8 min read</span>
+<a class="text-primary font-label-md flex items-center gap-xs" href="#">Read <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden bento-hover transition-all flex flex-col">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A group of diverse students in London laughing and walking near Big Ben, representing the UK scholarship experience. The image is captured with a high-end commercial aesthetic, focusing on candid joy and the iconic city backdrop. Colors are balanced with deep blues and warm sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr7ABL8W9BjU3iQ5E868zzRJOzUDk6vNodxDDKZJUBm4S2Kt-DBwlKIVOM7wbLVYcGngia3Hc-M-kk8Mm0WsS3GMqBvPR84NpEEy5WxqPsiClfj2dFXZRD2iDMNkh0OegyiJiOTJ09_kpaG-X0NmXMUpUfhtu9p-cxZkoigsLGjNYBY6hk2RspvxQcQwtRJNOD8c4hnyso74c6CWlUVziu4Lp_k4ntgvQ4Gp84y-zvU2sPKCzVcSPXTChjn0ZSe1iH8eX62Uo-w0Fp"/>
+</div>
+<div class="p-lg flex flex-col flex-grow gap-sm">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">UK Scholarships</span>
+<h3 class="text-title-md font-title-md text-on-surface">UK Excellence: Chevening vs Commonwealth</h3>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-2">A comprehensive comparison to help you choose the right prestigious award for your postgraduate studies.</p>
+<div class="mt-auto pt-md flex items-center justify-between border-t border-outline-variant">
+<span class="text-label-sm text-outline flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">schedule</span> 6 min read</span>
+<a class="text-primary font-label-md flex items-center gap-xs" href="#">Read <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden bento-hover transition-all flex flex-col">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up of a student's hand holding a fountain pen, writing an essay on high-quality paper. The focus is on the tip of the pen and the elegant handwriting, symbolizing the art of scholarship essay writing. The atmosphere is quiet, focused, and professional, using a sophisticated cool-toned palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsWSLUOxV1FdMI5UxpIPfcvOaETKKVhN0qJ3et_4mZBLFT2MJnejw-pMqe5gwbRgG3MnIqlKcoJW1M34bvFiPpy0GfS7tDoA_oHQxB8nkwZAp5x1GjUXItyxW7cUvCBAKqxjoSXTQEpWimUZIiKeOptnMHJvo0CXcOWlrlzAA7FjZwucOB-eP6cUdBaoTqN68gTMqc3wjZBrl_yETmdihE4mzy83xZIQ2-_0etXNPzc6O3DWPQldoiBqBSQ58jlKc4ejlRVLipVWqw"/>
+</div>
+<div class="p-lg flex flex-col flex-grow gap-sm">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Application Tips</span>
+<h3 class="text-title-md font-title-md text-on-surface">Writing Personal Statements That Win</h3>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-2">How to craft a narrative that resonates with scholarship committees and highlights your unique potential.</p>
+<div class="mt-auto pt-md flex items-center justify-between border-t border-outline-variant">
+<span class="text-label-sm text-outline flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">schedule</span> 12 min read</span>
+<a class="text-primary font-label-md flex items-center gap-xs" href="#">Read <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden bento-hover transition-all flex flex-col">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An abstract representation of student finance, featuring a sleek, modern calculator and a small globe on a clean surface. The image uses a professional, high-fidelity aesthetic with deep shadows and highlights of emerald green to represent financial growth and success." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW6gfwLz47rVLSIWGdiqvys0NLO_k-Gp1Rk2rJ4-zvaP_gU9-ETC2lRh79JXtStjvTq2vxS5bF_uAuKQTKabqUU8Jdaf20VsmycBtWipJ7tPs2UC8vb8JfK-qaCd9UQerIRO6nRZWOOCQRgJqnzI5JBI_cfgEbnEyk4bWB8RtA1lOBHsnFMqxAmxPS-MNC4AyKFVJXd4dVNvGehtaxNr_k6t_EojXQXoY1Gbany0bdHcM67x9aKGW17HwPN3UqUXupcoLdjVZWtiwB"/>
+</div>
+<div class="p-lg flex flex-col flex-grow gap-sm">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Student Loans</span>
+<h3 class="text-title-md font-title-md text-on-surface">Financing Your Education: Loans vs Scholarships</h3>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-2">A realistic look at student debt and how to balance it with scholarship funding for long-term stability.</p>
+<div class="mt-auto pt-md flex items-center justify-between border-t border-outline-variant">
+<span class="text-label-sm text-outline flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">schedule</span> 7 min read</span>
+<a class="text-primary font-label-md flex items-center gap-xs" href="#">Read <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden bento-hover transition-all flex flex-col">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a happy, diverse student holding a diploma in front of a modern university building. The sun is shining, creating a high-key, celebratory atmosphere. The image is crisp, clean, and embodies the success that ScholarPath facilitates." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNMUwTglB8r2M3Aw0gXEAJm53SRz7zto8jvJOn-Fp8-lNiVsxRNRGKjrU-exSZeXg_7P9rGuPFd81dxeSVOCKSOyROwQk64X8Q67ul1BuORSPXjZN0snf-JCZWRlG6svKD1J71O-PXZPCUcVa4lzQ98B8somqLG-EzY4a7vO8aMT05dIZhPD6UKyzbRL96asnoRXXgiwNPx7TqJ8MrL664nok7pILzPZ-fvEA6ejGii_sRsqaxtOajo4-5KpJ_Cl8I4lOVI4gdiN8b"/>
+</div>
+<div class="p-lg flex flex-col flex-grow gap-sm">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Student Stories</span>
+<h3 class="text-title-md font-title-md text-on-surface">From Small Village to Ivy League: Arjun's Journey</h3>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-2">An inspiring story of perseverance and how ScholarPath helped one student bridge the funding gap.</p>
+<div class="mt-auto pt-md flex items-center justify-between border-t border-outline-variant">
+<span class="text-label-sm text-outline flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">schedule</span> 10 min read</span>
+<a class="text-primary font-label-md flex items-center gap-xs" href="#">Read <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<nav class="flex items-center justify-center gap-md py-xl">
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">chevron_left</span>
+</button>
+<div class="flex items-center gap-xs">
+<button class="w-10 h-10 rounded-lg bg-primary text-on-primary font-label-md">1</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant text-on-surface-variant font-label-md hover:border-primary hover:text-primary transition-all">2</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant text-on-surface-variant font-label-md hover:border-primary hover:text-primary transition-all">3</button>
+<span class="text-outline">...</span>
+<button class="w-10 h-10 rounded-lg border border-outline-variant text-on-surface-variant font-label-md hover:border-primary hover:text-primary transition-all">12</button>
+</div>
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">chevron_right</span>
+</button>
+</nav>
+</div>
+<!-- Sidebar (4 Columns) -->
+<aside class="lg:col-span-4 flex flex-col gap-xl">
+<!-- Popular Scholarships Widget -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<h4 class="text-title-md font-title-md text-on-surface mb-lg">Popular scholarships</h4>
+<ul class="flex flex-col gap-md">
+<li class="group">
+<a class="flex flex-col gap-xs p-md rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+<span class="text-label-md font-bold text-on-surface group-hover:text-primary">Commonwealth Scholarship</span>
+<span class="text-label-sm text-outline">Full funding for postgraduate study in the UK.</span>
+</a>
+</li>
+<li class="group">
+<a class="flex flex-col gap-xs p-md rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+<span class="text-label-md font-bold text-on-surface group-hover:text-primary">Chevening Scholarship</span>
+<span class="text-label-sm text-outline">Leadership-focused award for global professionals.</span>
+</a>
+</li>
+<li class="group">
+<a class="flex flex-col gap-xs p-md rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+<span class="text-label-md font-bold text-on-surface group-hover:text-primary">Fulbright Program</span>
+<span class="text-label-sm text-outline">Prestigious research and teaching grants in the USA.</span>
+</a>
+</li>
+</ul>
+<button class="w-full mt-lg py-sm text-primary font-bold hover:underline transition-all">View all scholarships →</button>
+</div>
+<!-- Newsletter Signup Section -->
+<div class="bg-primary text-on-primary rounded-xl p-xl shadow-lg relative overflow-hidden">
+<div class="relative z-10 flex flex-col gap-md">
+<span class="material-symbols-outlined text-xxl opacity-30">mail</span>
+<h4 class="text-headline-md font-headline-md">Join our newsletter</h4>
+<p class="text-body-md opacity-90">Get the latest scholarship alerts and expert guides delivered straight to your inbox weekly.</p>
+<form class="flex flex-col gap-sm" onsubmit="event.preventDefault();">
+<input class="w-full px-md py-sm bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-white/60 focus:ring-2 focus:ring-white focus:outline-none" placeholder="Enter your email" type="email"/>
+<button class="w-full py-sm bg-white text-primary font-bold rounded-lg hover:bg-secondary-fixed transition-colors active:scale-95" type="submit">Subscribe</button>
+</form>
+<p class="text-label-sm opacity-60">No spam. Unsubscribe at any time.</p>
+</div>
+<!-- Decorative background glow -->
+<div class="absolute -right-16 -top-16 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+</div>
+</aside>
+</section>
+</main>
+<!-- Footer (JSON Anchor) -->
+<footer class="bg-surface-container-highest border-t border-outline-variant w-full mt-xxl py-xl">
+<div class="max-w-container-max mx-auto px-lg flex flex-col md:flex-row justify-between items-center gap-xl">
+<div class="flex flex-col items-center md:items-start gap-xs">
+<span class="text-title-md font-title-md font-bold text-primary">ScholarPath</span>
+<p class="text-on-surface-variant font-body-md text-body-md opacity-80">© 2024 ScholarPath. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-lg">
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary transition-colors" href="#">Help Center</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary transition-colors" href="#">Contact Support</a>
+</div>
+<div class="flex gap-md">
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</button>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</button>
+</div>
+</div>
+</footer>
+<!-- Interactive Layer: Simple Scroll Effect for Nav -->
+<script>
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+                header.classList.add('bg-white/90');
+                header.classList.add('backdrop-blur-sm');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.remove('bg-white/90');
+                header.classList.remove('backdrop-blur-sm');
+            }
+        });
+
+        // Simple button active state simulation
+        document.querySelectorAll('.px-md.py-sm.rounded-full').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.px-md.py-sm.rounded-full').forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('bg-surface-container-lowest', 'text-on-surface-variant', 'border-outline-variant');
+                });
+                btn.classList.add('bg-primary', 'text-on-primary');
+                btn.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant', 'border-outline-variant');
+            });
+        });
+    </script>
+</body></html>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="index.html">Previous</a>
+    <a href="eighthpage.html">Next</a>
+</nav>

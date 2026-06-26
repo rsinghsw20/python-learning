@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Applications | ScholarPath</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "primary-container": "#4f46e5",
+                    "surface": "#f8f9ff",
+                    "on-surface-variant": "#464555",
+                    "outline-variant": "#c7c4d8",
+                    "on-surface": "#0b1c30",
+                    "surface-dim": "#cbdbf5",
+                    "secondary": "#006c49",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-container": "#dad7ff",
+                    "primary-fixed": "#e2dfff",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "inverse-surface": "#213145",
+                    "surface-container-highest": "#d3e4fe",
+                    "background": "#f8f9ff",
+                    "surface-container-low": "#eff4ff",
+                    "surface-tint": "#4d44e3",
+                    "tertiary-container": "#885500",
+                    "secondary-fixed": "#6ffbbe",
+                    "outline": "#777587",
+                    "tertiary-fixed": "#ffddb8",
+                    "secondary-fixed-dim": "#4edea3",
+                    "secondary-container": "#6cf8bb",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-variant": "#d3e4fe",
+                    "on-tertiary-fixed": "#2a1700",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#ffd4a4",
+                    "on-secondary-fixed": "#002113",
+                    "tertiary": "#684000",
+                    "on-background": "#0b1c30",
+                    "on-secondary-container": "#00714d",
+                    "on-primary-fixed": "#0f0069",
+                    "surface-container": "#e5eeff",
+                    "primary": "#3525cd",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#c3c0ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "margin-mobile": "16px",
+                    "xs": "4px",
+                    "xxl": "48px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "title-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg-mobile": ["Inter"]
+            },
+            "fontSize": {
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab-line::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #3525cd;
+        }
+        .progress-bar-glow {
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Desktop SideNavBar (from JSON) -->
+<aside class="hidden md:flex flex-col h-full py-lg px-md h-screen w-64 fixed left-0 top-0 bg-surface-container-lowest shadow-sm z-50">
+<div class="flex items-center gap-sm mb-xxl px-sm">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h1 class="font-title-lg text-title-lg font-bold text-primary">ScholarPath</h1>
+<p class="text-[10px] uppercase tracking-wider text-outline font-bold leading-none">Guiding Expert</p>
+</div>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">star</span>
+<span class="font-body-md">My Matches</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-body-md">Saved</span>
+</a>
+<!-- Active State: Applications -->
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container font-semibold rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-body-md">Applications</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-body-md">Profile</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-body-md">Notifications</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md">Help</span>
+</a>
+</nav>
+<div class="mt-auto pt-lg border-t border-outline-variant/30">
+<div class="bg-surface-container p-md rounded-xl flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a confident young university student with a warm smile, wearing a casual navy sweater, shot with high-key soft lighting and a clean, minimalist background to convey academic success and professionalism. The image has a polished, high-fidelity SaaS aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0i8tEguj8v9bW2Nrgz2p-D0iGFL3Jiy_ApALif1n6ztPz6UnhYY83qAJmdDZ5FjYk6b60ZVPwEoBbhUc8HzejpgHGkkO6DB0hi2ofOJzPJJam-AK0Z6iAEBKI7nyWntRvh2KK9EuJesQCdQ9c41BoEgqp6Ja71vh365vJxb9LBrZnF-lgF2xj3VPdvVrj7l4-bdd7QtXj-6aW_9nujdFX-zaMMC5AkQbBOEH0wpWuT3OaiMn8pN4ZJYdeUjtoAX2GFPbdNU-UZ2Ze"/>
+</div>
+<div class="overflow-hidden">
+<p class="font-title-md text-[14px] truncate">Alex Johnson</p>
+<p class="text-label-md text-on-surface-variant">Masters Aspirant</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Mobile BottomNavBar (from JSON) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile py-sm bg-surface shadow-lg z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">star</span>
+<span class="font-label-sm text-label-sm">Matches</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</a>
+<!-- Active State: Apps -->
+<a class="flex flex-col items-center justify-center text-primary font-bold active:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-sm text-label-sm">Apps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Main Canvas -->
+<main class="md:ml-64 min-h-screen pb-xxl">
+<!-- TopBar (from JSON) -->
+<header class="sticky top-0 bg-surface-container-lowest/80 backdrop-blur-md z-40 flex justify-between items-center h-16 px-lg max-w-container-max mx-auto md:px-xl">
+<div class="flex items-center gap-md">
+<span class="md:hidden font-title-lg text-title-lg font-black text-primary">ScholarPath</span>
+<div class="hidden md:flex relative w-64 lg:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full pl-10 pr-md py-sm bg-surface-container-low border-none rounded-lg text-body-md focus:ring-2 focus:ring-primary/20" placeholder="Search applications..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container font-bold text-xs">AJ</div>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="max-w-container-max mx-auto px-md md:px-xl pt-lg">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface flex items-center gap-sm">
+                        My applications
+                        <span class="px-sm py-[2px] bg-primary-container text-on-primary-container text-label-md rounded-full">3</span>
+</h2>
+<p class="text-on-surface-variant mt-xs">Track and manage your scholarship journey in one place.</p>
+</div>
+<button class="flex items-center justify-center gap-sm bg-primary text-on-primary px-lg py-md rounded-lg font-semibold hover:shadow-lg transition-all active:scale-95 group">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+                    Browse more scholarships
+                    <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Filter Tabs -->
+<div class="flex items-center gap-xl border-b border-outline-variant overflow-x-auto no-scrollbar mb-lg">
+<button class="pb-md px-xs relative font-semibold text-primary active-tab-line whitespace-nowrap">All</button>
+<button class="pb-md px-xs relative font-medium text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">Draft</button>
+<button class="pb-md px-xs relative font-medium text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">Submitted</button>
+<button class="pb-md px-xs relative font-medium text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap flex items-center gap-xs">
+                    Under review
+                    <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+</button>
+<button class="pb-md px-xs relative font-medium text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">Awarded</button>
+<button class="pb-md px-xs relative font-medium text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">Rejected</button>
+</div>
+<!-- Application List -->
+<div class="space-y-lg">
+<!-- Card 1: Awarded -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden hover:shadow-md transition-all duration-300">
+<div class="p-lg">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-lg">
+<div class="flex items-start gap-lg">
+<div class="w-16 h-16 rounded-xl border border-outline-variant bg-white flex items-center justify-center p-xs flex-shrink-0">
+<img class="w-full h-full object-contain" data-alt="Official logo of the University of British Columbia, a prestigious academic crest with high-fidelity detailing, presented on a clean white background with subtle depth and professional lighting for a premium academic branding feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3eD10UJjSje2bNG0ryw8lfkdpjOLAaFqRw5EODid2lc9wnutcLne80YdapIGhRMfnz3qZoaPHkmO_51oC9dCaWJ4yfCHVBBagz0-ZYngEan8AiUMellJrNzc7FHOlaoEe08eFW9MsW-DXMaaQkQmETPTqFJ_-oMQFzx8sr70W45WmaLauPSF7feOJCVeL2lM1uhml_1GfwHHizggKSo1PsRa6wA47TlUR7PhDR4lmrgqefTk71oeY8kg0w1osf_T7mel-IqE8vOHK"/>
+</div>
+<div class="space-y-sm">
+<div class="flex flex-wrap items-center gap-sm">
+<h3 class="font-title-md text-title-md text-on-surface">Global Excellence Graduate Award</h3>
+<span class="px-sm py-xs bg-emerald-50 text-secondary text-label-sm font-bold rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                            Awarded
+                                        </span>
+</div>
+<div class="flex flex-wrap items-center gap-md text-on-surface-variant text-body-md">
+<span class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                            Canada
+                                        </span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="bg-surface-container-high px-sm py-[2px] rounded-full text-label-sm font-bold">PG</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="font-bold text-on-surface">₹45,00,000</span>
+</div>
+<div class="text-label-md text-outline">
+                                        ID: SP-9821 • Submitted: Oct 12, 2023
+                                    </div>
+</div>
+</div>
+<div class="flex flex-col gap-sm min-w-[200px]">
+<div class="flex justify-between items-center mb-xs">
+<span class="text-label-md font-bold text-secondary">Success</span>
+<span class="text-label-md font-bold">100%</span>
+</div>
+<div class="w-full h-1.5 bg-secondary-container/20 rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full progress-bar-glow" style="width: 100%"></div>
+</div>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-outline-variant/30 flex flex-wrap justify-between items-center gap-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">workspace_premium</span>
+<span class="text-body-md font-medium text-on-surface">Congratulations! Your scholarship has been disbursed.</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="px-md py-sm rounded-lg border border-outline-variant text-body-md font-semibold hover:bg-surface-container-low transition-colors">Download confirmation</button>
+<button class="px-md py-sm rounded-lg bg-primary-container text-on-primary-container text-body-md font-semibold hover:bg-primary hover:text-on-primary transition-all">View application</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2: Under Review -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden hover:shadow-md transition-all duration-300">
+<div class="p-lg">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-lg">
+<div class="flex items-start gap-lg">
+<div class="w-16 h-16 rounded-xl border border-outline-variant bg-white flex items-center justify-center p-xs flex-shrink-0">
+<img class="w-full h-full object-contain" data-alt="Official logo of Imperial College London, featuring classical academic heraldry with intricate detail, rendered with high resolution and soft, even lighting to sit perfectly within a modern digital interface for professional educational services." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASCeviCmjf_flLs_8slRSqVrY-6gxa1NoLKby-fwuMUgM7DJVG8YRwqwymZyrS_Z_plk-zNvCG_gI9PC_QCQEJbUjU6Vc2D-6WnxsH5degrtQQWWXTsdsKNttsAcuOyhkhJBPN1fJMFq-I5btDENYFQLK0wW1jHXXhbHshXD-Qt12v7X7-k47-Ja10pOdHgVlplwchU5DcM_04fi9zLanVrUlgD2bMAR7FddjDES0UQnN0MsBUEqYuzf1hySQsXZ7EkfxQfw74YfVH"/>
+</div>
+<div class="space-y-sm">
+<div class="flex flex-wrap items-center gap-sm">
+<h3 class="font-title-md text-title-md text-on-surface">Future Leaders STEM Scholarship</h3>
+<span class="px-sm py-xs bg-amber-50 text-amber-700 text-label-sm font-bold rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">potted_plant</span>
+                                            Under review
+                                        </span>
+</div>
+<div class="flex flex-wrap items-center gap-md text-on-surface-variant text-body-md">
+<span class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                            UK
+                                        </span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="bg-surface-container-high px-sm py-[2px] rounded-full text-label-sm font-bold">UG</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="font-bold text-on-surface">₹25,00,000</span>
+</div>
+<div class="text-label-md text-outline">
+                                        ID: SP-4412 • Submitted: Oct 20, 2023
+                                    </div>
+</div>
+</div>
+<div class="flex flex-col gap-sm min-w-[200px]">
+<div class="flex justify-between items-center mb-xs">
+<span class="text-label-md font-bold text-on-surface-variant">Review Status</span>
+<span class="text-label-md font-bold">100%</span>
+</div>
+<div class="w-full h-1.5 bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-amber-500 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+</div>
+<!-- Timeline Section -->
+<div class="mt-lg pt-lg border-t border-outline-variant/30">
+<div class="relative">
+<div class="absolute left-[11px] top-4 bottom-4 w-[2px] bg-outline-variant"></div>
+<div class="space-y-lg">
+<!-- Step 1 -->
+<div class="flex items-start gap-lg relative">
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-on-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<p class="font-semibold text-body-md text-on-surface">Applied Successfully</p>
+<p class="text-label-md text-on-surface-variant">Oct 20, 2023</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-lg relative">
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-on-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<p class="font-semibold text-body-md text-on-surface">Documents Verified</p>
+<p class="text-label-md text-on-surface-variant">Oct 25, 2023</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-lg relative">
+<div class="w-6 h-6 rounded-full border-2 border-amber-500 bg-white flex items-center justify-center z-10">
+<div class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></div>
+</div>
+<div>
+<p class="font-semibold text-body-md text-on-surface">Review in Progress</p>
+<p class="text-label-md text-on-surface-variant">Estimated completion by Nov 15</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-lg flex justify-end">
+<button class="px-md py-sm rounded-lg bg-surface-container-high text-on-surface text-body-md font-semibold hover:bg-surface-container transition-colors">View application</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3: Draft -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden hover:shadow-md transition-all duration-300">
+<div class="p-lg">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-lg">
+<div class="flex items-start gap-lg">
+<div class="w-16 h-16 rounded-xl border border-outline-variant bg-white flex items-center justify-center p-xs flex-shrink-0">
+<img class="w-full h-full object-contain" data-alt="University of Melbourne brand identity logo, showcasing modern clean academic design with historical elements, high resolution, crisp lines, and professional studio lighting for an elegant presentation within a scholarship application dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVQGBEpGABaZvzZ6vUUYbPLHJchw4MnSmAt-Rx1DlfxzW7w-uAJVeD3PehMBumQlRj5KvEUvkcIPuBBavEZORX2ds_dGiaBaQES1xEXbnAz_G6xdZS-j5Ly_nCCwR45zsacemfvWLZgD9I1Y9EOTn0aiBXfRWvSnUrS6_nIU5hN1i8V71dhyZeRL1-xulcvPRUNmgOoUZVum1Wt86BZqoXtpVWSgkJyWjRnYlWj_0P-ehjcORUJBAFJC5mEHNCs1VrF1MXDzrQrbf9"/>
+</div>
+<div class="space-y-sm">
+<div class="flex flex-wrap items-center gap-sm">
+<h3 class="font-title-md text-title-md text-on-surface">International Merit Scholarship</h3>
+<span class="px-sm py-xs bg-surface-container-high text-on-surface-variant text-label-sm font-bold rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+                                            Draft
+                                        </span>
+</div>
+<div class="flex flex-wrap items-center gap-md text-on-surface-variant text-body-md">
+<span class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                            Australia
+                                        </span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="bg-surface-container-high px-sm py-[2px] rounded-full text-label-sm font-bold">PG</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="font-bold text-on-surface">₹20,00,000</span>
+</div>
+<div class="text-label-md text-outline">
+                                        ID: SP-1102 • Last edited: 2 days ago
+                                    </div>
+</div>
+</div>
+<div class="flex flex-col gap-sm min-w-[200px]">
+<div class="flex justify-between items-center mb-xs">
+<span class="text-label-md font-bold text-on-surface-variant">Incomplete</span>
+<span class="text-label-md font-bold">65%</span>
+</div>
+<div class="w-full h-1.5 bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 65%"></div>
+</div>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-outline-variant/30 flex justify-between items-center">
+<p class="text-body-md text-on-surface-variant">You have <span class="font-bold text-on-surface">3 sections</span> left to complete.</p>
+<button class="px-lg py-sm rounded-lg bg-primary text-on-primary text-body-md font-semibold hover:shadow-lg transition-all active:scale-95">Continue draft</button>
+</div>
+</div>
+</article>
+<!-- Hidden Empty State Illustration -->
+<div class="hidden flex flex-col items-center justify-center py-xxl text-center">
+<div class="w-48 h-48 mb-lg bg-surface-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[80px] text-outline-variant">assignment_late</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface">No applications yet</h4>
+<p class="text-on-surface-variant max-w-xs mt-sm">Start your journey by exploring scholarships matched specifically for your profile.</p>
+<button class="mt-lg px-lg py-md bg-primary text-on-primary rounded-lg font-semibold">Start Exploring</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) - Suppressed as per mandate for Details/Tracker pages -->
+<script>
+        // Simple Interaction logic
+        document.querySelectorAll('article').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('translate-y-[-2px]');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('translate-y-[-2px]');
+            });
+        });
+
+        // Tab Switching Simulation
+        const filterButtons = document.querySelectorAll('.active-tab-line, button[class*="on-surface-variant"]');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('active-tab-line', 'text-primary', 'font-semibold');
+                    b.classList.add('text-on-surface-variant', 'font-medium');
+                });
+                btn.classList.add('active-tab-line', 'text-primary', 'font-semibold');
+                btn.classList.remove('text-on-surface-variant', 'font-medium');
+            });
+        });
+    </script>
+</body></html>
+
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="index.html">Previous</a>
+    <a href="twenty.html">Next</a>
+</nav>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How it Works - ScholarPath</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#dad7ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#3525cd",
+                        "primary-fixed": "#e2dfff",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#4d44e3",
+                        "on-secondary-container": "#00714d",
+                        "outline": "#777587",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#c3c0ff",
+                        "surface-dim": "#cbdbf5",
+                        "outline-variant": "#c7c4d8",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-primary-fixed": "#0f0069",
+                        "secondary": "#006c49",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#005236",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#0b1c30",
+                        "background": "#f8f9ff",
+                        "tertiary-container": "#885500",
+                        "surface-variant": "#d3e4fe",
+                        "tertiary": "#684000",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-tertiary-fixed": "#2a1700",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface-variant": "#464555",
+                        "secondary-fixed-dim": "#4edea3",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "secondary-container": "#6cf8bb",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface-container-high": "#dce9ff",
+                        "on-background": "#0b1c30",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "surface": "#f8f9ff",
+                        "on-secondary-fixed": "#002113",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#4f46e5",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-tertiary-container": "#ffd4a4",
+                        "inverse-surface": "#213145"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "8px",
+                        "base": "4px",
+                        "xl": "32px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "xxl": "48px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .timeline-line {
+            background: linear-gradient(180deg, transparent 0%, #3525cd 15%, #3525cd 85%, transparent 100%);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+            padding-bottom: 1rem;
+        }
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface shadow-sm h-16 flex items-center px-lg">
+<div class="max-w-container-max mx-auto w-full flex justify-between items-center">
+<div class="flex items-center gap-xl">
+<span class="text-title-lg font-title-lg font-bold text-primary">ScholarPath</span>
+<div class="hidden md:flex gap-lg">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Find Scholarships</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">My Applications</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Profile</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-label-md">
+                    JD
+                </div>
+</div>
+</div>
+</nav>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="py-xxl px-margin-mobile md:px-lg text-center bg-surface-bright">
+<div class="max-w-4xl mx-auto space-y-md">
+<h1 class="font-display-lg text-display-lg md:text-display-lg text-on-surface tracking-tight">How ScholarPath works</h1>
+<p class="font-title-md text-title-md text-on-surface-variant max-w-2xl mx-auto">
+                    From profile to admit in 4 simple steps. Our intelligent platform streamlines the complex world of global education funding.
+                </p>
+</div>
+</section>
+<!-- Vertical Timeline Section -->
+<section class="py-xxl px-margin-mobile md:px-lg relative overflow-hidden">
+<div class="max-w-container-max mx-auto relative">
+<!-- Central Connector Line -->
+<div class="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 timeline-line hidden md:block"></div>
+<!-- Steps -->
+<div class="space-y-xl md:space-y-xxl relative">
+<!-- Step 1 -->
+<div class="flex flex-col md:flex-row items-center group">
+<div class="w-full md:w-1/2 md:pr-xxl text-center md:text-right order-2 md:order-1">
+<div class="inline-flex md:hidden mb-sm text-primary font-bold text-label-md bg-primary-fixed px-3 py-1 rounded-full">Step 1</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Create your profile</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Fill academic info, target countries, and budget to help our engine understand your unique student journey.</p>
+</div>
+<div class="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white shadow-lg border-4 border-surface mb-md md:mb-0 order-1 md:order-2">
+<span class="material-symbols-outlined text-3xl">pause_circle</span>
+</div>
+<div class="w-full md:w-1/2 md:pl-xxl order-3">
+<div class="hidden md:block w-full max-w-sm rounded-xl overflow-hidden shadow-md bg-white border border-outline-variant p-4 grayscale group-hover:grayscale-0 transition-all duration-500">
+<div class="h-40 bg-surface-container-low rounded-lg flex items-center justify-center">
+<div class="space-y-2 w-3/4">
+<div class="h-2 bg-outline-variant/30 rounded-full w-full"></div>
+<div class="h-2 bg-outline-variant/30 rounded-full w-5/6"></div>
+<div class="h-2 bg-outline-variant/30 rounded-full w-4/6"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col md:flex-row items-center group">
+<div class="w-full md:w-1/2 md:pr-xxl order-3 md:order-1">
+<div class="hidden md:flex justify-end w-full">
+<div class="w-full max-w-sm rounded-xl overflow-hidden shadow-md bg-white border border-outline-variant p-4 grayscale group-hover:grayscale-0 transition-all duration-500">
+<div class="h-40 bg-secondary-container/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"></div>
+<div class="relative flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary text-4xl animate-pulse">spark</span>
+<div class="h-2 bg-primary/20 rounded-full w-32"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white shadow-lg border-4 border-surface mb-md md:mb-0 order-1 md:order-2">
+<span class="material-symbols-outlined text-3xl">spark</span>
+</div>
+<div class="w-full md:w-1/2 md:pl-xxl text-center md:text-left order-2 md:order-3">
+<div class="inline-flex md:hidden mb-sm text-primary font-bold text-label-md bg-primary-fixed px-3 py-1 rounded-full">Step 2</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Get instant matches</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">AI matches your profile to thousands of eligible scholarships, filtering out the noise to show only what you qualify for.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col md:flex-row items-center group">
+<div class="w-full md:w-1/2 md:pr-xxl text-center md:text-right order-2 md:order-1">
+<div class="inline-flex md:hidden mb-sm text-primary font-bold text-label-md bg-primary-fixed px-3 py-1 rounded-full">Step 3</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Review &amp; shortlist</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Read detailed eligibility requirements, deadlines, and required documentation. Save your favorites to a personal dashboard.</p>
+</div>
+<div class="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white shadow-lg border-4 border-surface mb-md md:mb-0 order-1 md:order-2">
+<span class="material-symbols-outlined text-3xl">bookmark</span>
+</div>
+<div class="w-full md:w-1/2 md:pl-xxl order-3">
+<div class="hidden md:block w-full max-w-sm rounded-xl overflow-hidden shadow-md bg-white border border-outline-variant p-4 grayscale group-hover:grayscale-0 transition-all duration-500">
+<div class="h-40 bg-surface-container-low rounded-lg p-4">
+<div class="flex items-center justify-between mb-4">
+<div class="h-4 bg-outline-variant/40 rounded w-1/2"></div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+<div class="space-y-2">
+<div class="h-2 bg-outline-variant/20 rounded w-full"></div>
+<div class="h-2 bg-outline-variant/20 rounded w-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col md:flex-row items-center group">
+<div class="w-full md:w-1/2 md:pr-xxl order-3 md:order-1">
+<div class="hidden md:flex justify-end w-full">
+<div class="w-full max-w-sm rounded-xl overflow-hidden shadow-md bg-white border border-outline-variant p-4 grayscale group-hover:grayscale-0 transition-all duration-500">
+<div class="h-40 bg-tertiary-container/10 rounded-lg flex flex-col items-center justify-center p-4">
+<div class="flex gap-1 mb-2">
+<div class="w-8 h-1 bg-secondary rounded-full"></div>
+<div class="w-8 h-1 bg-secondary rounded-full"></div>
+<div class="w-8 h-1 bg-secondary rounded-full"></div>
+<div class="w-8 h-1 bg-outline-variant rounded-full"></div>
+</div>
+<p class="text-label-sm font-label-sm text-secondary">75% Complete</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white shadow-lg border-4 border-surface mb-md md:mb-0 order-1 md:order-2">
+<span class="material-symbols-outlined text-3xl">rocket</span>
+</div>
+<div class="w-full md:w-1/2 md:pl-xxl text-center md:text-left order-2 md:order-3">
+<div class="inline-flex md:hidden mb-sm text-primary font-bold text-label-md bg-primary-fixed px-3 py-1 rounded-full">Step 4</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Apply &amp; track</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">One-click apply to partner programs, track your status in real-time, and receive automated reminders for submission.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Accordion Section -->
+<section class="py-xxl px-margin-mobile md:px-lg bg-surface-container-low">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Common Questions</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Everything you need to know about navigating the scholarship landscape.</p>
+</div>
+<div class="space-y-sm">
+<!-- FAQ 1 -->
+<div class="accordion-item bg-white rounded-xl border border-outline-variant overflow-hidden">
+<button class="w-full px-lg py-md flex items-center justify-between text-left hover:bg-surface-container transition-colors focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-title-md text-title-md text-on-surface">Is ScholarPath free?</span>
+<span class="material-symbols-outlined transition-transform duration-300 accordion-icon">expand_more</span>
+</button>
+<div class="accordion-content px-lg">
+<p class="text-on-surface-variant font-body-md">Yes, the core scholarship search and profile creation are completely free for students. We believe in democratizing access to education.</p>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="accordion-item bg-white rounded-xl border border-outline-variant overflow-hidden">
+<button class="w-full px-lg py-md flex items-center justify-between text-left hover:bg-surface-container transition-colors focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-title-md text-title-md text-on-surface">How accurate are the matches?</span>
+<span class="material-symbols-outlined transition-transform duration-300 accordion-icon">expand_more</span>
+</button>
+<div class="accordion-content px-lg">
+<p class="text-on-surface-variant font-body-md">Our AI engine has a 98% accuracy rating. It parses complex eligibility text from thousands of sources to ensure you only see opportunities relevant to your academic standing and demographics.</p>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="accordion-item bg-white rounded-xl border border-outline-variant overflow-hidden">
+<button class="w-full px-lg py-md flex items-center justify-between text-left hover:bg-surface-container transition-colors focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-title-md text-title-md text-on-surface">Can I apply directly?</span>
+<span class="material-symbols-outlined transition-transform duration-300 accordion-icon">expand_more</span>
+</button>
+<div class="accordion-content px-lg">
+<p class="text-on-surface-variant font-body-md">For many scholarships, we offer "One-Click Apply" integration. For others, we provide a direct link to the official application portal and a checklist of required documents.</p>
+</div>
+</div>
+<!-- FAQ 4 -->
+<div class="accordion-item bg-white rounded-xl border border-outline-variant overflow-hidden">
+<button class="w-full px-lg py-md flex items-center justify-between text-left hover:bg-surface-container transition-colors focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-title-md text-title-md text-on-surface">Do you help with SOP/LOR?</span>
+<span class="material-symbols-outlined transition-transform duration-300 accordion-icon">expand_more</span>
+</button>
+<div class="accordion-content px-lg">
+<p class="text-on-surface-variant font-body-md">We provide expert templates and AI-powered grammar checks for your Statement of Purpose (SOP) and Letters of Recommendation (LOR) as part of our premium toolkit.</p>
+</div>
+</div>
+<!-- FAQ 5 -->
+<div class="accordion-item bg-white rounded-xl border border-outline-variant overflow-hidden">
+<button class="w-full px-lg py-md flex items-center justify-between text-left hover:bg-surface-container focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-title-md text-title-md text-on-surface">How often are scholarships updated?</span>
+<span class="material-symbols-outlined transition-transform duration-300 accordion-icon">expand_more</span>
+</button>
+<div class="accordion-content px-lg">
+<p class="text-on-surface-variant font-body-md">Our database is updated every 24 hours. We track application deadlines and new funding opportunities in real-time across 150+ countries.</p>
+</div>
+</div>
+<!-- FAQ 6 -->
+<div class="accordion-item bg-white rounded-xl border border-outline-variant overflow-hidden">
+<button class="w-full px-lg py-md flex items-center justify-between text-left hover:bg-surface-container focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-title-md text-title-md text-on-surface">Is it available for all countries?</span>
+<span class="material-symbols-outlined transition-transform duration-300 accordion-icon">expand_more</span>
+</button>
+<div class="accordion-content px-lg">
+<p class="text-on-surface-variant font-body-md">Yes, ScholarPath supports students globally. Whether you are looking for domestic aid or international study grants, we have coverage for all major regions.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="py-xxl px-margin-mobile md:px-lg">
+<div class="max-w-container-max mx-auto">
+<div class="relative bg-primary rounded-3xl p-xl md:p-xxl text-center overflow-hidden">
+<!-- Background pattern decoration -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary-fixed rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"></div>
+</div>
+<div class="relative z-10 space-y-lg">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white">Ready to find your scholarship?</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-xl mx-auto">Join over 50,000 students who found their future path with ScholarPath this year.</p>
+<div class="flex flex-col sm:flex-row gap-md justify-center items-center">
+<button class="bg-secondary text-white px-xl py-3 rounded-lg font-title-md hover:opacity-90 transition-all transform active:scale-95 shadow-lg">
+                                Create free profile
+                            </button>
+<button class="bg-white/10 text-white backdrop-blur-md border border-white/20 px-xl py-3 rounded-lg font-title-md hover:bg-white/20 transition-all transform active:scale-95">
+                                Browse all scholarships
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl px-lg mt-auto flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto bg-surface-container-highest border-t border-outline-variant">
+<div class="mb-md md:mb-0 text-center md:text-left">
+<span class="text-title-md font-title-md font-bold text-primary">ScholarPath</span>
+<p class="text-on-surface-variant font-body-md text-body-md mt-1">© 2024 ScholarPath. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-lg">
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary transition-colors" href="#">Help Center</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary transition-colors" href="#">Contact Support</a>
+</div>
+</footer>
+<script>
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            const isOpen = item.classList.contains('active');
+
+            // Close all items
+            document.querySelectorAll('.accordion-item').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Open clicked item if it was closed
+            if (!isOpen) {
+                item.classList.add('active');
+            }
+        }
+
+        // Add intersection observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('grayscale', 'opacity-0', 'translate-y-10');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.group div').forEach(el => {
+            // Setup for observation
+            if (el.classList.contains('grayscale')) {
+                revealObserver.observe(el);
+            }
+        });
+    </script>
+</body></html>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="index.html">Previous</a>
+    <a href="sixthpage.html">Next</a>
+</nav>

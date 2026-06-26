@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ScholarStep - Onboarding Flow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "on-secondary-fixed": "#002113",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "secondary-fixed-dim": "#4edea3",
+                    "surface-container-low": "#eff4ff",
+                    "tertiary-fixed": "#ffddb8",
+                    "surface": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "primary-fixed": "#e2dfff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-primary": "#ffffff",
+                    "primary": "#3525cd",
+                    "on-surface": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#d3e4fe",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#0f0069",
+                    "surface-tint": "#4d44e3",
+                    "primary-container": "#4f46e5",
+                    "secondary": "#006c49",
+                    "outline": "#777587",
+                    "secondary-fixed": "#6ffbbe",
+                    "secondary-container": "#6cf8bb",
+                    "inverse-primary": "#c3c0ff",
+                    "surface-container-high": "#dce9ff",
+                    "tertiary-container": "#885500",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#d3e4fe",
+                    "outline-variant": "#c7c4d8",
+                    "surface-dim": "#cbdbf5",
+                    "on-surface-variant": "#464555",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ffd4a4",
+                    "on-secondary-container": "#00714d",
+                    "on-primary-container": "#dad7ff",
+                    "on-error-container": "#93000a",
+                    "on-background": "#0b1c30",
+                    "error-container": "#ffdad6",
+                    "background": "#f8f9ff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-tertiary-fixed": "#2a1700",
+                    "inverse-surface": "#213145",
+                    "tertiary": "#684000",
+                    "surface-bright": "#f8f9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "xl": "32px",
+                    "base": "4px",
+                    "container-max": "1280px",
+                    "xxl": "48px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "title-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .step-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hidden-step {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+            position: absolute;
+        }
+        .active-step {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+            position: relative;
+        }
+        .scholarship-blur {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- TopNavBar (Shared Component Blueprint) -->
+<header class="bg-surface dark:bg-surface-dim docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-lg py-md max-w-container-max mx-auto">
+<div class="font-title-lg text-title-lg font-bold text-primary dark:text-primary-fixed-dim">
+                ScholarStep
+            </div>
+<!-- Progress Dots -->
+<div class="flex gap-2 items-center" id="progress-container">
+<div class="w-2.5 h-2.5 rounded-full bg-primary step-dot"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant step-dot"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant step-dot"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant step-dot"></div>
+</div>
+<button class="text-on-surface-variant dark:text-on-surface-variant font-title-md text-title-md hover:text-primary transition-colors">
+                Skip
+            </button>
+</div>
+</header>
+<main class="flex-grow flex items-start justify-center pt-xl px-margin-mobile">
+<div class="w-full max-w-2xl relative">
+<!-- STEP 1: Academics -->
+<section class="step-transition active-step w-full" id="step-1">
+<div class="mb-xl text-center">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Tell us about your academics</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">We use your academic history to match you with university requirements.</p>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant space-y-lg">
+<!-- GPA / % Toggle -->
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant block">SCORING SYSTEM</label>
+<div class="flex bg-surface-container p-1 rounded-lg w-fit">
+<button class="px-xl py-sm rounded-md font-title-md text-title-md bg-white shadow-sm text-primary transition-all" id="btn-gpa" onclick="toggleScoreType('gpa')">GPA (4.0)</button>
+<button class="px-xl py-sm rounded-md font-title-md text-title-md text-on-surface-variant hover:text-on-surface transition-all" id="btn-percent" onclick="toggleScoreType('percent')">Percentage (%)</button>
+</div>
+</div>
+<!-- Input Fields -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant block">SCORE VALUE</label>
+<input class="w-full h-12 px-md rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="e.g. 3.8 or 85" type="text"/>
+</div>
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant block">BOARD / UNIVERSITY</label>
+<input class="w-full h-12 px-md rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="e.g. CBSE or Stanford University" type="text"/>
+</div>
+</div>
+<!-- Backlogs Toggle -->
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-lg border border-outline-variant">
+<div>
+<p class="font-title-md text-title-md text-on-surface">Any active backlogs?</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Universities often have specific policies for backlogs.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<button class="w-full bg-primary text-on-primary font-title-md text-title-md py-md rounded-lg hover:opacity-90 active:scale-[0.98] transition-all" onclick="nextStep(2)">
+                        Continue to Test Scores
+                    </button>
+</div>
+</section>
+<!-- STEP 2: Test Scores -->
+<section class="step-transition hidden-step w-full" id="step-2">
+<div class="mb-xl text-center">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Your test scores</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Select the tests you have taken or plan to take.</p>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant space-y-lg">
+<div class="grid grid-cols-2 md:grid-cols-3 gap-md">
+<!-- Test Item -->
+<div class="cursor-pointer border border-outline-variant p-md rounded-lg flex flex-col items-center gap-2 hover:border-primary transition-colors group" id="test-ielts" onclick="toggleTest('ielts')">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="description">description</span>
+<span class="font-label-md text-label-md">IELTS</span>
+</div>
+<div class="cursor-pointer border border-outline-variant p-md rounded-lg flex flex-col items-center gap-2 hover:border-primary transition-colors group" id="test-toefl" onclick="toggleTest('toefl')">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="language">language</span>
+<span class="font-label-md text-label-md">TOEFL</span>
+</div>
+<div class="cursor-pointer border border-outline-variant p-md rounded-lg flex flex-col items-center gap-2 hover:border-primary transition-colors group" id="test-gre" onclick="toggleTest('gre')">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">GRE</span>
+</div>
+<div class="cursor-pointer border border-outline-variant p-md rounded-lg flex flex-col items-center gap-2 hover:border-primary transition-colors group" id="test-gmat" onclick="toggleTest('gmat')">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="bar_chart">bar_chart</span>
+<span class="font-label-md text-label-md">GMAT</span>
+</div>
+<div class="cursor-pointer border border-outline-variant p-md rounded-lg flex flex-col items-center gap-2 hover:border-primary transition-colors group" id="test-sat" onclick="toggleTest('sat')">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="history_edu">history_edu</span>
+<span class="font-label-md text-label-md">SAT</span>
+</div>
+<div class="cursor-pointer border border-outline-variant p-md rounded-lg flex flex-col items-center gap-2 hover:border-error transition-colors group" id="test-none" onclick="clearTests()">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-error transition-colors" data-icon="block">block</span>
+<span class="font-label-md text-label-md">None</span>
+</div>
+</div>
+<!-- Dynamic Score Inputs -->
+<div class="space-y-md hidden" id="score-inputs-container">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Enter Scores</p>
+<div class="hidden animate-in fade-in slide-in-from-top-2 duration-300" id="ielts-input">
+<div class="flex items-center gap-md p-md bg-surface-container rounded-lg border border-outline-variant">
+<span class="font-title-md text-title-md w-24">IELTS</span>
+<input class="flex-grow h-10 px-md rounded border border-outline-variant focus:ring-1 focus:ring-primary outline-none" placeholder="Overall Band (e.g. 7.5)" type="number"/>
+</div>
+</div>
+<!-- Add others dynamically or pre-hide -->
+<div class="hidden animate-in fade-in slide-in-from-top-2 duration-300" id="gre-input">
+<div class="flex items-center gap-md p-md bg-surface-container rounded-lg border border-outline-variant">
+<span class="font-title-md text-title-md w-24">GRE</span>
+<input class="flex-grow h-10 px-md rounded border border-outline-variant focus:ring-1 focus:ring-primary outline-none" placeholder="Total Score (e.g. 320)" type="number"/>
+</div>
+</div>
+</div>
+<div class="flex gap-md">
+<button class="w-1/3 bg-surface-container text-on-surface font-title-md text-title-md py-md rounded-lg hover:bg-surface-container-high transition-all" onclick="nextStep(1)">
+                            Back
+                        </button>
+<button class="w-2/3 bg-primary text-on-primary font-title-md text-title-md py-md rounded-lg hover:opacity-90 active:scale-[0.98] transition-all" onclick="nextStep(3)">
+                            Next: Funding
+                        </button>
+</div>
+</div>
+</section>
+<!-- STEP 3: Funding Preferences -->
+<section class="step-transition hidden-step w-full" id="step-3">
+<div class="mb-xl text-center">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Funding preferences</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">We'll filter opportunities based on your financial goals.</p>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant space-y-xl">
+<!-- Multi-select Chips -->
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant block">SCHOLARSHIP TYPES</label>
+<div class="flex flex-wrap gap-sm">
+<button class="px-lg py-sm rounded-full border border-outline-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="toggleChip(this)">Merit-based</button>
+<button class="px-lg py-sm rounded-full border border-outline-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="toggleChip(this)">Need-based</button>
+<button class="px-lg py-sm rounded-full border border-outline-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="toggleChip(this)">Research</button>
+<button class="px-lg py-sm rounded-full border border-outline-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="toggleChip(this)">Diversity</button>
+<button class="px-lg py-sm rounded-full border border-outline-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="toggleChip(this)">Athletic</button>
+</div>
+</div>
+<!-- Budget Slider -->
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant">PERSONAL BUDGET RANGE</label>
+<span class="font-title-md text-title-md text-primary" id="budget-val">₹25L</span>
+</div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary" max="50" min="0" oninput="document.getElementById('budget-val').innerText = '₹' + this.value + 'L'" type="range" value="25"/>
+<div class="flex justify-between text-[10px] text-on-surface-variant font-bold">
+<span>₹0L</span>
+<span>₹50L+</span>
+</div>
+</div>
+<!-- Loan Toggle -->
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-lg border border-outline-variant">
+<div>
+<p class="font-title-md text-title-md text-on-surface">Open to study loans?</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Get matched with low-interest educational lenders.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex gap-md">
+<button class="w-1/3 bg-surface-container text-on-surface font-title-md text-title-md py-md rounded-lg hover:bg-surface-container-high transition-all" onclick="nextStep(2)">
+                            Back
+                        </button>
+<button class="w-2/3 bg-secondary text-on-secondary font-title-md text-title-md py-md rounded-lg hover:opacity-90 active:scale-[0.98] transition-all" onclick="nextStep(4)">
+                            Calculate Matches
+                        </button>
+</div>
+</div>
+</section>
+<!-- STEP 4: Success / Results -->
+<section class="step-transition hidden-step w-full max-w-4xl mx-auto" id="step-4">
+<div class="text-center mb-xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">You're all set!</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">We've found scholarships tailored specifically for your profile.</p>
+</div>
+<div class="relative h-[400px] w-full bg-surface-container-lowest rounded-xxl overflow-hidden shadow-xl border border-outline-variant flex items-center justify-center mb-xl">
+<!-- 3D Animation Layer -->
+<!-- STITCH_THREEJS_START:ANIMATION_14 class="absolute inset-0 w-full h-full opacity-60" -->
+<div class="absolute inset-0 w-full h-full opacity-60" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_14" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_14');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+
+const container = document.querySelector('#checkmark-container');
+const width = container.clientWidth || 300;
+const height = container.clientHeight || 300;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+renderer.setSize(width, height);
+container.appendChild(renderer.domElement);
+
+// Create a checkmark using shapes
+const checkShape = new THREE.Shape();
+checkShape.moveTo(-0.5, 0);
+checkShape.lineTo(-0.2, -0.3);
+checkShape.lineTo(0.5, 0.4);
+
+const extrudeSettings = { depth: 0.1, bevelEnabled: true, bevelThickness: 0.05, bevelSize: 0.05 };
+const geometry = new THREE.ExtrudeGeometry(checkShape, extrudeSettings);
+const material = new THREE.MeshPhongMaterial({ color: 0x4f46e5, shininess: 100 });
+const checkmark = new THREE.Mesh(geometry, material);
+scene.add(checkmark);
+
+const light = new THREE.DirectionalLight(0xffffff, 1);
+light.position.set(1, 1, 2);
+scene.add(light);
+scene.add(new THREE.AmbientLight(0x404040));
+
+camera.position.z = 2;
+
+function animate() {
+  requestAnimationFrame(animate);
+  checkmark.rotation.y += 0.01;
+  renderer.render(scene, camera);
+}
+
+window.addEventListener('resize', () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  renderer.setSize(w, h);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+});
+
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_14 -->
+<!-- Content Overlay -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="text-center mb-lg">
+<div class="text-[64px] font-bold text-primary leading-tight">12</div>
+<div class="font-title-lg text-title-lg text-on-surface">Matches Found</div>
+</div>
+<!-- Scholarship Card Previews -->
+<div class="flex gap-md -space-x-12 px-xl">
+<!-- Card 1 -->
+<div class="scholarship-blur w-48 h-56 rounded-xl border border-outline-variant p-md shadow-lg transform rotate-[-6deg] translate-y-4">
+<div class="w-10 h-10 bg-primary-container rounded-lg mb-sm"></div>
+<div class="h-4 w-3/4 bg-on-surface-variant/20 rounded-full mb-xs"></div>
+<div class="h-3 w-1/2 bg-on-surface-variant/10 rounded-full mb-md"></div>
+<div class="mt-auto h-8 w-full bg-primary/20 rounded-lg"></div>
+</div>
+<!-- Card 2 (Center) -->
+<div class="scholarship-blur w-48 h-56 rounded-xl border border-primary/30 p-md shadow-2xl relative z-20 scale-110">
+<div class="w-10 h-10 bg-secondary-container rounded-lg mb-sm"></div>
+<div class="h-4 w-3/4 bg-on-surface-variant/20 rounded-full mb-xs"></div>
+<div class="h-3 w-1/2 bg-on-surface-variant/10 rounded-full mb-md"></div>
+<div class="mt-auto h-8 w-full bg-secondary text-white text-[10px] flex items-center justify-center font-bold rounded-lg uppercase">Best Fit</div>
+</div>
+<!-- Card 3 -->
+<div class="scholarship-blur w-48 h-56 rounded-xl border border-outline-variant p-md shadow-lg transform rotate-[6deg] translate-y-4">
+<div class="w-10 h-10 bg-tertiary-fixed-dim rounded-lg mb-sm"></div>
+<div class="h-4 w-3/4 bg-on-surface-variant/20 rounded-full mb-xs"></div>
+<div class="h-3 w-1/2 bg-on-surface-variant/10 rounded-full mb-md"></div>
+<div class="mt-auto h-8 w-full bg-tertiary/20 rounded-lg"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-md justify-center items-center">
+<button class="w-full md:w-64 bg-primary text-on-primary font-title-lg text-title-lg py-md px-xl rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all">
+                        View my matches
+                    </button>
+<button class="w-full md:w-64 bg-surface-container text-on-surface-variant font-title-lg text-title-lg py-md px-xl rounded-full hover:bg-surface-container-high transition-all">
+                        Go to dashboard
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer Decoration -->
+<div class="fixed bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-tertiary-fixed-dim opacity-50"></div>
+<script>
+        let currentStep = 1;
+
+        function nextStep(step) {
+            // Hide all steps
+            document.querySelectorAll('section').forEach(s => {
+                s.classList.remove('active-step');
+                s.classList.add('hidden-step');
+            });
+
+            // Show target step
+            const target = document.getElementById(`step-${step}`);
+            target.classList.remove('hidden-step');
+            target.classList.add('active-step');
+
+            // Update Progress Dots
+            const dots = document.querySelectorAll('.step-dot');
+            dots.forEach((dot, idx) => {
+                if (idx < step) {
+                    dot.classList.remove('bg-outline-variant');
+                    dot.classList.add('bg-primary');
+                } else {
+                    dot.classList.add('bg-outline-variant');
+                    dot.classList.remove('bg-primary');
+                }
+            });
+
+            currentStep = step;
+        }
+
+        function toggleScoreType(type) {
+            const btnGpa = document.getElementById('btn-gpa');
+            const btnPercent = document.getElementById('btn-percent');
+            if (type === 'gpa') {
+                btnGpa.className = 'px-xl py-sm rounded-md font-title-md text-title-md bg-white shadow-sm text-primary transition-all';
+                btnPercent.className = 'px-xl py-sm rounded-md font-title-md text-title-md text-on-surface-variant hover:text-on-surface transition-all';
+            } else {
+                btnPercent.className = 'px-xl py-sm rounded-md font-title-md text-title-md bg-white shadow-sm text-primary transition-all';
+                btnGpa.className = 'px-xl py-sm rounded-md font-title-md text-title-md text-on-surface-variant hover:text-on-surface transition-all';
+            }
+        }
+
+        function toggleTest(testId) {
+            const el = document.getElementById(`test-${testId}`);
+            const inputContainer = document.getElementById('score-inputs-container');
+            const inputField = document.getElementById(`${testId}-input`);
+
+            el.classList.toggle('border-primary');
+            el.classList.toggle('bg-primary-container/10');
+
+            if (inputField) {
+                inputField.classList.toggle('hidden');
+
+                // Show container if any specific test is active
+                const activeSpecific = document.querySelectorAll('[id$="-input"]:not(.hidden)');
+                if (activeSpecific.length > 0) {
+                    inputContainer.classList.remove('hidden');
+                } else {
+                    inputContainer.classList.add('hidden');
+                }
+            }
+        }
+
+        function clearTests() {
+            // Reset UI
+            document.querySelectorAll('[id^="test-"]').forEach(el => {
+                el.classList.remove('border-primary', 'bg-primary-container/10');
+            });
+            document.getElementById('test-none').classList.add('border-error', 'bg-error-container/10');
+
+            document.querySelectorAll('[id$="-input"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById('score-inputs-container').classList.add('hidden');
+
+            setTimeout(() => {
+                document.getElementById('test-none').classList.remove('border-error', 'bg-error-container/10');
+            }, 1000);
+        }
+
+        function toggleChip(btn) {
+            btn.classList.toggle('bg-primary-container');
+            btn.classList.toggle('text-on-primary-container');
+            btn.classList.toggle('border-primary');
+        }
+    </script>
+</body></html>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="index.html">Previous</a>
+    <a href="fourthpage.html">Next</a>
+</nav>

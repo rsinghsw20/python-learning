@@ -1,0 +1,355 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Find Scholarships | ScholarPath</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#c3c0ff",
+                    "secondary": "#006c49",
+                    "tertiary-container": "#885500",
+                    "on-tertiary-fixed": "#2a1700",
+                    "on-primary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#6cf8bb",
+                    "on-primary-fixed": "#0f0069",
+                    "surface-container-high": "#dce9ff",
+                    "surface-container": "#e5eeff",
+                    "primary": "#3525cd",
+                    "on-error": "#ffffff",
+                    "tertiary": "#684000",
+                    "on-secondary-fixed-variant": "#005236",
+                    "surface-dim": "#cbdbf5",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#4d44e3",
+                    "tertiary-fixed": "#ffddb8",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#eff4ff",
+                    "on-background": "#0b1c30",
+                    "on-secondary-container": "#00714d",
+                    "on-primary-container": "#dad7ff",
+                    "surface-bright": "#f8f9ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#4f46e5",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-tertiary-container": "#ffd4a4",
+                    "outline-variant": "#c7c4d8",
+                    "outline": "#777587",
+                    "on-surface-variant": "#464555",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "surface": "#f8f9ff",
+                    "secondary-fixed-dim": "#4edea3",
+                    "surface-variant": "#d3e4fe",
+                    "error": "#ba1a1a",
+                    "on-surface": "#0b1c30",
+                    "secondary-fixed": "#6ffbbe",
+                    "inverse-surface": "#213145",
+                    "on-secondary-fixed": "#002113",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "primary-fixed": "#e2dfff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "xs": "4px",
+                    "xxl": "48px",
+                    "margin-mobile": "16px",
+                    "sm": "8px",
+                    "container-max": "1280px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "title-md": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .custom-range-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 4px;
+            background: #E2E8F0;
+            border-radius: 5px;
+            outline: none;
+        }
+        .custom-range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #3525cd;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-lg h-16 max-w-container-max mx-auto bg-surface dark:bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-xl">
+<h1 class="text-title-lg font-title-lg font-bold text-primary dark:text-inverse-primary">ScholarPath</h1>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary pb-1 font-title-md text-title-md" href="#">Find Scholarships</a>
+<a class="text-on-surface-variant dark:text-outline font-body-md text-body-md hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">My Applications</a>
+<a class="text-on-surface-variant dark:text-outline font-body-md text-body-md hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">Profile</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a student in a business casual environment, soft natural lighting, high-fidelity corporate portrait photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC80o7EqCoZDLBnXruamLbAx0grerxseRaWaYceZ83Sh36P2SUCV8nbuxd7q2p8iDzblAZ4Fav1mAz2tE843k-fkzraKqL48R2AMQ9k9l3tx9WmxSq-Tp1QOPDbu-wKOxS0GMJPM9UweOWzP9_a480rw4u8SORWvuy2YCIMUsZ8ClIBUybhRyIYbLlYYUXZ880l-49m70UCSF2WqWhD0ozFvvkZRCe4UeoE3aM4XvDTGLby4lM0TgUGYHH20x-WtgXF4YQQFoTe3osV">
+</div>
+<button class="md:hidden p-2 text-primary" id="mobile-filter-trigger">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</header>
+<main class="flex-1 mt-16 max-w-container-max mx-auto w-full flex relative px-md lg:px-lg gap-gutter">
+<!-- Left Sidebar (Filter Panel) -->
+<aside class="hidden md:block sticky top-16 h-[calc(100vh-64px)] w-[280px] shrink-0 py-lg overflow-y-auto hide-scrollbar" id="filter-sidebar">
+<div class="space-y-xl">
+<!-- Keyword Search -->
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant">Keyword Search</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-body-md" placeholder="Search title, university..." type="text">
+</div>
+</div>
+<!-- Destination -->
+<div class="space-y-md">
+<h3 class="font-title-md text-title-md">Destination</h3>
+<div class="grid grid-cols-1 gap-2"><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">USA</span></label><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">UK</span></label><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">Canada</span></label><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">Australia</span></label><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">Ireland</span></label><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">Germany</span></label><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">New Zealand</span></label></div>
+</div>
+<!-- Study Level -->
+<div class="space-y-md">
+<h3 class="font-title-md text-title-md">Study Level</h3>
+<div class="space-y-2"><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 border-outline-variant text-primary focus:ring-primary" name="study_level" type="radio"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">Undergraduate</span></label><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 border-outline-variant text-primary focus:ring-primary" name="study_level" type="radio"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">Postgraduate</span></label><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 border-outline-variant text-primary focus:ring-primary" name="study_level" type="radio"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">PhD</span></label><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 border-outline-variant text-primary focus:ring-primary" name="study_level" type="radio"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">Diploma</span></label></div>
+</div>
+<!-- Award Value Slider -->
+<div class="space-y-md">
+<div class="flex justify-between items-center">
+<h3 class="font-title-md text-title-md">Award Value</h3>
+<span class="text-label-md text-primary">₹1L - ₹1Cr+</span>
+</div>
+<div class="px-1">
+<input class="custom-range-slider" max="100" min="0" type="range" value="50">
+<div class="flex justify-between mt-2 text-label-sm text-outline">
+<span class="">₹0</span>
+<span class="">₹1Cr+</span>
+</div>
+</div>
+</div>
+<!-- Scholarship Type -->
+<div class="space-y-md">
+<h3 class="font-title-md text-title-md">Scholarship Type</h3>
+<div class="space-y-2"><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">Merit-based</span></label><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">Need-based</span></label><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">Diversity</span></label><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">Government</span></label><label class="flex items-center gap-2 cursor-pointer group"><input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"><span class="text-body-md text-on-surface-variant group-hover:text-on-surface">University Specific</span></label></div>
+</div>
+<!-- Deadline Toggle -->
+<div class="space-y-md">
+<h3 class="font-title-md text-title-md">Deadline</h3>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4 text-primary focus:ring-primary" name="deadline" type="radio">
+<span class="text-body-md">Closing this month</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4 text-primary focus:ring-primary" name="deadline" type="radio">
+<span class="text-body-md">Next 3 months</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4 text-primary focus:ring-primary" name="deadline" type="radio">
+<span class="text-body-md">Closing this year</span>
+</label>
+</div>
+</div>
+<button class="w-full py-2 text-primary font-label-md hover:bg-primary/5 rounded-lg transition-colors flex items-center justify-center gap-2 border border-primary/20">
+<span class="material-symbols-outlined text-[18px]">filter_alt_off</span>
+                    Clear all filters
+                </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-1 py-lg min-w-0">
+<!-- Match Banner -->
+<div class="mb-lg p-xl bg-primary-container text-on-primary-container rounded-xl flex flex-col md:flex-row justify-between items-center gap-lg hidden" id="matched-banner">
+<div class="flex gap-md">
+<div class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px] text-white">auto_awesome</span>
+</div>
+<div>
+<h2 class="font-title-lg text-title-lg font-bold">Your matched scholarships</h2>
+<p class="font-body-md opacity-90">We've found 24 scholarships that fit your profile perfectly.</p>
+</div>
+</div>
+<button class="bg-white text-primary px-lg py-2 rounded-lg font-title-md hover:bg-surface transition-all active:scale-95 shadow-sm whitespace-nowrap">
+                    Complete Profile
+                </button>
+</div>
+<!-- Top Search Bar & Filters -->
+<div class="flex flex-col gap-md mb-xl">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div class="flex items-center gap-md">
+<h2 class="font-headline-md text-headline-md">124 Results</h2>
+<div class="flex p-1 bg-surface-container-high rounded-lg">
+<button class="px-4 py-1 rounded-md bg-surface text-primary font-label-md shadow-sm">All</button>
+<button class="px-4 py-1 rounded-md text-on-surface-variant font-label-md hover:text-on-surface">Live</button>
+<button class="px-4 py-1 rounded-md text-on-surface-variant font-label-md hover:text-on-surface">Upcoming</button>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<span class="text-label-md text-on-surface-variant">Sort by:</span>
+<select class="bg-surface border border-outline-variant rounded-lg px-3 py-1.5 text-body-md focus:ring-primary">
+<option>Best match</option>
+<option>Deadline: Soonest</option>
+<option>Value: High to Low</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Results Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-gutter"><div class="bg-surface-container-lowest rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col gap-md"><div class="flex justify-between items-start"><div class="flex gap-md"><div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center overflow-hidden bg-white"><img class="w-full h-full object-contain p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzKtBnWmlhb73awG6Ul5aDhpX-KS2k1TYPwczZxSzk_1_Eu0XdT60URqXV766MgpHpHUK8QjYKrtTRtK5IS-fxARrfjDWgv4rTcEwLzqLJVyvvbQ_MQwrR7VtQyBa4xSuf2g8QGHNvhWlf4lDVBPbzwdX3srjsJjYZ7_m0Ja-HtlK4LPh8a12XLGxLHFm52wb2sKSs1M6ZUmHZel9kDpHBd8X4ZnO7V8Xg8gr9uMsxOajgUWP5WmznA7HV02yPRR3liblNdwW0oSqD"></div><div><h3 class="font-title-md text-title-md text-on-surface line-clamp-2 leading-tight">Global Excellence Postgraduate Scholarship 2024</h3><div class="flex items-center gap-2 mt-1"><span class="text-body-md text-on-surface-variant">University of Manchester</span><span class="text-xs">🇬🇧</span></div></div></div><button class="text-on-surface-variant hover:text-primary p-1"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">bookmark</span></button></div><div class="flex flex-wrap gap-2"><span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md">Full Tuition</span><span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full font-label-md">Postgraduate</span><span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full font-label-md">Engineering</span></div><div class="grid grid-cols-2 gap-md p-md bg-surface-container-low rounded-lg"><div class="space-y-1"><span class="text-label-sm text-outline block">GPA REQUIREMENT</span><span class="text-body-md font-semibold">3.5 / 4.0</span></div><div class="space-y-1"><span class="text-label-sm text-outline block">IELTS SCORE</span><span class="text-body-md font-semibold">7.0+</span></div></div><div class="flex items-center gap-2 text-error font-label-md"><span class="material-symbols-outlined text-[18px]">timer</span>Closing in 12 days</div><div class="flex gap-md mt-auto pt-2"><button class="flex-1 py-2 border border-primary text-primary rounded-lg font-label-md hover:bg-primary/5 transition-colors">Check Eligibility</button><button class="flex-1 py-2 bg-primary text-on-primary rounded-lg font-label-md hover:bg-primary-container transition-all active:scale-95 shadow-sm">Apply Now</button></div></div><div class="bg-surface-container-lowest rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col gap-md"><div class="flex justify-between items-start"><div class="flex gap-md"><div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center overflow-hidden bg-white"><img class="w-full h-full object-contain p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCmWLOmD4K9B9nipLNXw9JZ8juQtRFCC0gU3ZAgCAuMYIVdWqjmA1uH-tcipalI_vyvO92X0hguL129p7Be3AV-CUK1uojYaTRQA4FBTRVR6TSJ6QbzdiO744LojutFhj4IoPVXvjGMblnCH6s2YGzkzjbi8qO_fQXsBOguVU9nVxGEw2DTdO7KygMmHinPTmnGkMNcNKe5jDrcdBGdBO5cn6V9fPoASZCBhlqVM4ti0GQLLyc2AZBfj-UYARfFBWB77bFKoZEqGch"></div><div><h3 class="font-title-md text-title-md text-on-surface line-clamp-2 leading-tight">Diversity in STEM Undergraduate Grant</h3><div class="flex items-center gap-2 mt-1"><span class="text-body-md text-on-surface-variant">Stanford University</span><span class="text-xs">🇺🇸</span></div></div></div><button class="text-primary p-1"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span></button></div><div class="flex flex-wrap gap-2"><span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md">₹45,00,000</span><span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full font-label-md">Undergraduate</span><span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full font-label-md">Diversity</span></div><div class="grid grid-cols-2 gap-md p-md bg-surface-container-low rounded-lg"><div class="space-y-1"><span class="text-label-sm text-outline block">GPA REQUIREMENT</span><span class="text-body-md font-semibold">3.8 / 4.0</span></div><div class="space-y-1"><span class="text-label-sm text-outline block">SAT/ACT</span><span class="text-body-md font-semibold">Optional</span></div></div><div class="flex items-center gap-2 text-on-surface-variant font-label-md"><span class="material-symbols-outlined text-[18px]">calendar_today</span>Deadline: Oct 15, 2024</div><div class="flex gap-md mt-auto pt-2"><button class="flex-1 py-2 border border-primary text-primary rounded-lg font-label-md hover:bg-primary/5 transition-colors">Check Eligibility</button><button class="flex-1 py-2 bg-primary text-on-primary rounded-lg font-label-md hover:bg-primary-container transition-all active:scale-95 shadow-sm">Apply Now</button></div></div><div class="bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-outline-variant/30 flex flex-col gap-md opacity-90"><div class="flex justify-between items-start"><div class="flex gap-md"><div class="w-10 h-10 rounded-full border border-outline-variant bg-surface flex items-center justify-center"><span class="material-symbols-outlined text-outline">school</span></div><div><h3 class="font-title-md text-title-md text-on-surface line-clamp-2 leading-tight">International Student Achievement Award</h3><div class="flex items-center gap-2 mt-1"><span class="text-body-md text-on-surface-variant">University of Melbourne</span><span class="text-xs">🇦🇺</span></div></div></div><button class="text-on-surface-variant hover:text-primary p-1"><span class="material-symbols-outlined">bookmark</span></button></div><div class="flex flex-wrap gap-2"><span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md">₹15,00,000</span><span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full font-label-md">UG/PG</span></div><div class="grid grid-cols-2 gap-md p-md bg-surface-container-low rounded-lg"><div class="space-y-1"><span class="text-label-sm text-outline block">GPA</span><span class="text-body-md font-semibold">3.2+</span></div><div class="space-y-1"><span class="text-label-sm text-outline block">ENGLISH</span><span class="text-body-md font-semibold">6.5+</span></div></div><div class="flex items-center gap-2 text-on-surface-variant font-label-md"><span class="material-symbols-outlined text-[18px]">calendar_today</span>Next cycle: Jan 2025</div><div class="flex gap-md mt-auto pt-2"><button class="flex-1 py-2 border border-primary text-primary rounded-lg font-label-md">Details</button><button class="flex-1 py-2 bg-primary text-on-primary rounded-lg font-label-md">Apply</button></div></div></div>
+<!-- Pagination -->
+<div class="mt-xxl mb-xl flex flex-col md:flex-row items-center justify-between gap-md border-t border-outline-variant pt-lg">
+<span class="text-body-md text-on-surface-variant">Showing 1 - 20 of 124 scholarships</span>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-lg flex items-center justify-center border border-outline-variant text-outline hover:bg-surface-container-high transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center bg-primary text-on-primary font-bold shadow-sm">1</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-surface-container-high transition-colors">2</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-surface-container-high transition-colors">3</button>
+<span class="px-2 text-outline">...</span>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-surface-container-high transition-colors">7</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center border border-outline-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl px-lg mt-auto flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant">
+<div class="flex flex-col items-center md:items-start gap-2 mb-md md:mb-0">
+<span class="text-title-md font-title-md font-bold text-primary dark:text-inverse-primary">ScholarPath</span>
+<span class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm">© 2024 ScholarPath. All rights reserved.</span>
+</div>
+<div class="flex flex-wrap justify-center gap-lg">
+<a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Help Center</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Contact Support</a>
+</div>
+</footer>
+<!-- Mobile Navigation (BottomNavBar placeholder as per guidelines) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-low border-t border-outline-variant flex justify-around items-center h-16 z-50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="text-label-sm">Find</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-label-sm">Apply</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm">Profile</span>
+</button>
+</nav>
+<!-- Mobile Drawer Script -->
+<script>
+        const trigger = document.getElementById('mobile-filter-trigger');
+        const sidebar = document.getElementById('filter-sidebar');
+
+        let isOpen = false;
+
+        trigger.addEventListener('click', () => {
+            isOpen = !isOpen;
+            if (isOpen) {
+                sidebar.classList.remove('hidden');
+                sidebar.classList.add('fixed', 'left-0', 'bottom-16', 'w-full', 'z-40', 'bg-white', 'px-md');
+                sidebar.style.height = 'calc(100vh - 128px)';
+            } else {
+                sidebar.classList.add('hidden');
+                sidebar.classList.remove('fixed', 'left-0', 'bottom-16', 'w-full', 'z-40', 'bg-white', 'px-md');
+            }
+        });
+
+        // Hide match banner if not matched
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('matched') !== 'true') {
+            document.getElementById('matched-banner')?.classList.add('hidden');
+        }
+
+        // Simple active state logic for Top Nav
+        document.querySelectorAll('header nav a').forEach(link => {
+            if (link.innerText === "Find Scholarships") {
+                // Already styled in HTML
+            }
+        });
+    </script>
+
+
+</body></html>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="index.html">Previous</a>
+    <a href="secondpage.html">Next</a>
+</nav>

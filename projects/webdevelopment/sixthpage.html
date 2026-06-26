@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scholarship Detail | ScholarPath</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab-indicator {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #3525cd;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        .sticky-sidebar {
+            position: sticky;
+            top: 5rem;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary-fixed-dim": "#c3c0ff",
+                "tertiary": "#684000",
+                "on-secondary": "#ffffff",
+                "on-primary": "#ffffff",
+                "surface-container-low": "#eff4ff",
+                "primary": "#3525cd",
+                "on-error-container": "#93000a",
+                "tertiary-fixed": "#ffddb8",
+                "tertiary-fixed-dim": "#ffb95f",
+                "error-container": "#ffdad6",
+                "secondary-fixed-dim": "#4edea3",
+                "secondary": "#006c49",
+                "surface-bright": "#f8f9ff",
+                "surface-dim": "#cbdbf5",
+                "inverse-primary": "#c3c0ff",
+                "on-secondary-container": "#00714d",
+                "on-tertiary-container": "#ffd4a4",
+                "error": "#ba1a1a",
+                "on-primary-container": "#dad7ff",
+                "primary-fixed": "#e2dfff",
+                "surface-container-high": "#dce9ff",
+                "on-secondary-fixed": "#002113",
+                "on-error": "#ffffff",
+                "on-tertiary-fixed-variant": "#653e00",
+                "inverse-surface": "#213145",
+                "surface-container": "#e5eeff",
+                "outline-variant": "#c7c4d8",
+                "on-surface": "#0b1c30",
+                "surface-container-lowest": "#ffffff",
+                "on-primary-fixed-variant": "#3323cc",
+                "background": "#f8f9ff",
+                "on-tertiary-fixed": "#2a1700",
+                "on-surface-variant": "#464555",
+                "surface-container-highest": "#d3e4fe",
+                "surface-variant": "#d3e4fe",
+                "secondary-fixed": "#6ffbbe",
+                "tertiary-container": "#885500",
+                "secondary-container": "#6cf8bb",
+                "on-background": "#0b1c30",
+                "on-secondary-fixed-variant": "#005236",
+                "outline": "#777587",
+                "on-tertiary": "#ffffff",
+                "inverse-on-surface": "#eaf1ff",
+                "surface": "#f8f9ff",
+                "primary-container": "#4f46e5",
+                "on-primary-fixed": "#0f0069",
+                "surface-tint": "#4d44e3"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "sm": "8px",
+                "container-max": "1280px",
+                "xs": "4px",
+                "xxl": "48px",
+                "base": "4px",
+                "md": "16px",
+                "xl": "32px",
+                "lg": "24px",
+                "margin-mobile": "16px",
+                "gutter": "24px"
+            },
+            "fontFamily": {
+                "body-lg": ["Inter"],
+                "label-md": ["Inter"],
+                "headline-lg": ["Inter"],
+                "title-lg": ["Inter"],
+                "label-sm": ["Inter"],
+                "body-md": ["Inter"],
+                "title-md": ["Inter"],
+                "headline-md": ["Inter"],
+                "display-lg": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="bg-surface docked full-width top-0 shadow-sm z-50">
+<nav class="flex justify-between items-center w-full px-lg max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-xl">
+<span class="text-title-lg font-title-lg font-bold text-primary">ScholarshipExpert</span>
+<div class="hidden md:flex gap-lg items-center">
+<a class="text-primary border-b-2 border-primary font-semibold font-body-lg text-body-lg h-16 flex items-center" href="#">Browse</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-lg text-body-lg" href="#">Success Stories</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-lg text-body-lg" href="#">Resources</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all">Sign In</button>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md text-label-md hover:opacity-90 transition-all">Join Now</button>
+</div>
+</nav>
+</header>
+<main class="max-w-[1280px] mx-auto px-lg py-xl">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-sm text-label-md font-label-md text-on-surface-variant mb-xl">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Finder</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-on-surface">Ontario Graduate Engineering Scholarship</span>
+</nav>
+<div class="flex flex-col lg:flex-row gap-xxl relative">
+<!-- Left Column: Main Content (Max 900px wide effectively) -->
+<div class="flex-1 max-w-[900px]">
+<!-- Hero Section -->
+<section class="bg-surface-container-lowest rounded-xl p-xl shadow-sm mb-xl border border-outline-variant">
+<div class="flex flex-col md:flex-row gap-lg items-start">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A professional, minimalist university logo featuring crest-like heraldry in deep indigo and white. The design is clean and corporate, set against a crisp white background with soft studio lighting, conveying academic authority and prestige." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQYe5m-ZPTcgfx8Uc_yrzo6EhbGrAEdCKjtSJ_-Axdrlz6p8vKh03WiNwm76a2bAEp9pC9h7SEenxSMxsJ7DRVxt0G_OIWvDJmlIpah9LVxsBV2z-dpkgbI4dLb4ycbBV98n-RKs0kCTnr1q8O8nn5BOCEZQ32Do2EDCYILUeHDb-wMqwJtv2NF4-uSXZ5Zp30RRfqNNUFS5Im972QSjgXK711mIsvJvIIlUgft0CvANPcKC-kXnddwjBxKREC7zwv0yK6RdGMYPMp"/>
+</div>
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-sm mb-sm">
+<span class="bg-surface-container-high text-on-surface px-sm py-xs rounded text-label-sm font-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">flag</span> Canada
+                                </span>
+<span class="bg-surface-container-high text-on-surface px-sm py-xs rounded text-label-sm font-label-sm">Postgraduate</span>
+<span class="bg-surface-container-high text-on-surface px-sm py-xs rounded text-label-sm font-label-sm">Engineering</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface mb-sm">Ontario Graduate Engineering Excellence Scholarship</h1>
+<div class="flex items-center gap-md">
+<div class="text-[32px] font-bold text-secondary">₹45,00,000</div>
+<div class="bg-error-container text-on-error-container px-sm py-xs rounded-full text-label-sm font-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Closes in 23 days
+                                </div>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="p-sm rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+<button class="p-sm rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Navigation Tabs -->
+<div class="flex border-b border-outline-variant mb-lg overflow-x-auto whitespace-nowrap scrollbar-hide">
+<button class="px-xl py-md text-primary font-semibold border-b-2 border-primary transition-all" id="tab-overview" onclick="switchTab('overview')">Overview</button>
+<button class="px-xl py-md text-on-surface-variant font-medium hover:text-primary transition-all" id="tab-eligibility" onclick="switchTab('eligibility')">Eligibility</button>
+<button class="px-xl py-md text-on-surface-variant font-medium hover:text-primary transition-all" id="tab-how-to-apply" onclick="switchTab('how-to-apply')">How to Apply</button>
+<button class="px-xl py-md text-on-surface-variant font-medium hover:text-primary transition-all" id="tab-related" onclick="switchTab('related')">Related</button>
+</div>
+<!-- Tab Content: Overview -->
+<div class="tab-content space-y-xl" id="content-overview">
+<div>
+<h2 class="text-title-lg font-title-lg mb-md">Scholarship Description</h2>
+<p class="text-body-lg text-on-surface-variant leading-relaxed">
+                            The Ontario Graduate Engineering Excellence Scholarship is designed to attract top-tier international students to pursue Master's or PhD level research in Engineering disciplines within the province of Ontario. This prestigious award recognizes academic merit, research potential, and leadership qualities. Scholars will join a vibrant academic community and gain access to state-of-the-art laboratory facilities and industry partnerships across the Canadian technological corridor.
+                        </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant flex items-center gap-md">
+<div class="bg-primary-fixed-dim p-sm rounded-lg">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface-variant">Founded</div>
+<div class="text-body-lg font-semibold">2012</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant flex items-center gap-md">
+<div class="bg-primary-fixed-dim p-sm rounded-lg">
+<span class="material-symbols-outlined text-primary">military_tech</span>
+</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface-variant">Award Type</div>
+<div class="text-body-lg font-semibold">Merit-Based</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant flex items-center gap-md">
+<div class="bg-primary-fixed-dim p-sm rounded-lg">
+<span class="material-symbols-outlined text-primary">loop</span>
+</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface-variant">Renewable</div>
+<div class="text-body-lg font-semibold">Yes, Up to 4 Years</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant flex items-center gap-md">
+<div class="bg-primary-fixed-dim p-sm rounded-lg">
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface-variant">No. of Awards</div>
+<div class="text-body-lg font-semibold">50 per intake</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab Content: Eligibility (Hidden by default) -->
+<div class="tab-content hidden space-y-xl" id="content-eligibility">
+<div>
+<h2 class="text-title-lg font-title-lg mb-md">Eligibility Criteria</h2>
+<ul class="space-y-md">
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
+<span class="text-body-lg">Must hold an undergraduate degree in Engineering or closely related technical field with a minimum 8.5/10 CGPA.</span>
+</li>
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
+<span class="text-body-lg">Valid English proficiency score (IELTS: 7.5+ or TOEFL: 100+).</span>
+</li>
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
+<span class="text-body-lg">Proof of admission or application to an accredited Ontario public university.</span>
+</li>
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
+<span class="text-body-lg">Applicants must be international students (Non-Canadian citizens or permanent residents).</span>
+</li>
+</ul>
+</div>
+<!-- Eligibility Widget -->
+<div class="bg-primary text-on-primary p-xl rounded-xl shadow-lg relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="text-headline-md font-headline-md mb-sm">Are you eligible?</h3>
+<p class="text-primary-fixed-dim mb-lg">Answer 4 quick questions to see your match score.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-lg mb-xl">
+<div>
+<label class="block text-label-md font-label-md mb-xs opacity-80">Undergraduate GPA (out of 10)</label>
+<input class="w-full bg-white/10 border border-white/20 rounded-lg px-md py-sm text-white placeholder:text-white/40 focus:ring-2 focus:ring-secondary outline-none" placeholder="e.g. 9.2" type="number"/>
+</div>
+<div>
+<label class="block text-label-md font-label-md mb-xs opacity-80">IELTS / TOEFL Score</label>
+<input class="w-full bg-white/10 border border-white/20 rounded-lg px-md py-sm text-white placeholder:text-white/40 focus:ring-2 focus:ring-secondary outline-none" placeholder="e.g. 7.5" type="text"/>
+</div>
+<div>
+<label class="block text-label-md font-label-md mb-xs opacity-80">Nationality</label>
+<select class="w-full bg-white/10 border border-white/20 rounded-lg px-md py-sm text-white focus:ring-2 focus:ring-secondary outline-none appearance-none">
+<option class="text-on-surface">India</option>
+<option class="text-on-surface">Vietnam</option>
+<option class="text-on-surface">Other</option>
+</select>
+</div>
+<div>
+<label class="block text-label-md font-label-md mb-xs opacity-80">Field of Interest</label>
+<select class="w-full bg-white/10 border border-white/20 rounded-lg px-md py-sm text-white focus:ring-2 focus:ring-secondary outline-none appearance-none">
+<option class="text-on-surface">Computer Science</option>
+<option class="text-on-surface">Civil Eng.</option>
+<option class="text-on-surface">Mechanical Eng.</option>
+</select>
+</div>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-md rounded-lg font-title-md hover:opacity-90 transition-all shadow-md">Check My Eligibility</button>
+</div>
+<!-- Abstract decoration -->
+<div class="absolute -right-16 -bottom-16 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+</div>
+<!-- Tab Content: How to Apply (Hidden by default) -->
+<div class="tab-content hidden space-y-xl" id="content-how-to-apply">
+<div class="space-y-lg">
+<h2 class="text-title-lg font-title-lg">Application Steps</h2>
+<div class="space-y-md">
+<div class="flex gap-lg">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center flex-shrink-0 font-bold">1</div>
+<div class="pt-sm">
+<h4 class="text-body-lg font-bold">Submit University Application</h4>
+<p class="text-on-surface-variant">Apply to a Master’s or PhD Engineering program at an Ontario university before the scholarship deadline.</p>
+</div>
+</div>
+<div class="flex gap-lg">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center flex-shrink-0 font-bold">2</div>
+<div class="pt-sm">
+<h4 class="text-body-lg font-bold">Scholarship Portal Registration</h4>
+<p class="text-on-surface-variant">Register on the Ontario Graduate portal using your university application ID.</p>
+</div>
+</div>
+<div class="flex gap-lg">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center flex-shrink-0 font-bold">3</div>
+<div class="pt-sm">
+<h4 class="text-body-lg font-bold">Upload Documents</h4>
+<p class="text-on-surface-variant">Complete the online form and upload all required academic and identity documents.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-xl rounded-xl border border-outline-variant">
+<h3 class="text-title-md font-title-md mb-lg">Required Documents Checklist</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">description</span>
+<span class="text-body-md">Official Academic Transcripts</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">edit_note</span>
+<span class="text-body-md">Statement of Purpose (SOP)</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">group_add</span>
+<span class="text-body-md">2x Letters of Recommendation</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">language</span>
+<span class="text-body-md">English Proficiency Scorecard</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">badge</span>
+<span class="text-body-md">Valid Passport Copy</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+<span class="text-body-md">Bank Statement (Last 6 Months)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab Content: Related (Hidden by default) -->
+<div class="tab-content hidden" id="content-related">
+<h2 class="text-title-lg font-title-lg mb-lg">You might also be interested in</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-lg">
+<!-- Card 1 -->
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex items-center gap-md mb-md">
+<div class="w-12 h-12 bg-surface-container rounded-lg">
+<img class="w-full h-full object-cover" data-alt="A sophisticated academic badge icon in soft emerald and slate tones, representing environmental science studies. The graphic is clean, modern, and high-fidelity, designed with elegant proportions and clear focal points on a white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKR-m0wEJWKjFg1pE8h4IjdnR93iqrKI1h71NHI-FOtuA0l2Tas4EzQMwQAhRcx57PzvsU8SmShgxPh5Rfh7BH4snZ91YpCRTyZ-N_IO1-3VJKC8suqbgekVeo1ZYDBncuMzQI6pfkUtQ33PEBjKz4B8wKW_Q9YgmnWK2vmln61ORvBMYECDpmgaXrYe0L-WmRLBY9ABBuz5LrlByLjoappNQ6XH6ERPh-gFv2ELOJ_XoD20EHmSpGO261lQiaLpfMPkXZ3OaXUaPX"/>
+</div>
+<div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">University of Waterloo</div>
+<h4 class="text-body-lg font-bold">Waterloo STEM Award</h4>
+</div>
+</div>
+<div class="text-title-md font-bold text-secondary mb-sm">₹32,50,000</div>
+<div class="flex justify-between items-center text-label-md text-on-surface-variant">
+<span>Closes in 12 days</span>
+<a class="text-primary font-semibold" href="#">View Details</a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex items-center gap-md mb-md">
+<div class="w-12 h-12 bg-surface-container rounded-lg">
+<img class="w-full h-full object-cover" data-alt="A minimalist university crest featuring an open book and a laurel wreath, rendered in sleek navy blue and gold. The style is professional and academic, centered on a white canvas with soft, diffused shadows creating a premium high-end feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO--p9U4HshNyfJCz_GQd6mQkD3Di1AXE1-vl6LqwII3GyFeHQOabzVcPh5crTA-rdzahobWI3PhiGcXmEKAqgvp1ORWvhIl_bkkD2UVV1e3T6wlgDPzdwrg5RYnTViPpMz4--LAkeE-A8fob9tAMZbgKUl2LsPfjlGPbiuirJBvlB8f3b0KTWNWZH2Xo98vfX3e-BkY3k2Kab93hUvWNVpcD0A9NfQCrfY3gET9WYBTRpeMKwBp-xyDRmooS7JO_9jyHR5vnaPEfn"/>
+</div>
+<div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">UBC Vancouver</div>
+<h4 class="text-body-lg font-bold">President's Scholarship</h4>
+</div>
+</div>
+<div class="text-title-md font-bold text-secondary mb-sm">₹55,00,000</div>
+<div class="flex justify-between items-center text-label-md text-on-surface-variant">
+<span>Closes in 5 days</span>
+<a class="text-primary font-semibold" href="#">View Details</a>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex items-center gap-md mb-md">
+<div class="w-12 h-12 bg-surface-container rounded-lg">
+<img class="w-full h-full object-cover" data-alt="A modern tech-oriented university emblem featuring stylized binary patterns and a globe, using a vibrant teal and deep gray color palette. The aesthetic is clean, technological, and scholarly, with balanced lighting on a white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeIDywOPYGZLEraHkI0Xtr3PMmThkN41t2eY5VqRKF_Wc86bFeA2SpyKKLxd1YXwCYJYr6E4vZFBf4oYk0Pv0EGG7tI-ThBOcrz_CkdylIcKdjjDpvDZpleIGTt-AdC0j9yzoWET479C5m0cy8vuprYgJ55rpFPG9IVyZx0ZcjpNinSYQPXTmUhJa2lLRudvNd-wguNYrrCWpS3BWVwRngKy1YtloaOBaVpVwTyPdPEZ9wNnWxAmHcFy48lTssFBxeKx_Tzjdr8S0i"/>
+</div>
+<div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">York University</div>
+<h4 class="text-body-lg font-bold">Emerging Tech Grant</h4>
+</div>
+</div>
+<div class="text-title-md font-bold text-secondary mb-sm">₹18,00,000</div>
+<div class="flex justify-between items-center text-label-md text-on-surface-variant">
+<span>Closes in 45 days</span>
+<a class="text-primary font-semibold" href="#">View Details</a>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex items-center gap-md mb-md">
+<div class="w-12 h-12 bg-surface-container rounded-lg">
+<img class="w-full h-full object-cover" data-alt="A minimalist shield icon with an upward arrow and a star, symbolizing success and academic achievement. The color scheme is a professional palette of slate blue and bright silver, presented in a crisp, high-resolution style on a white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCND0GuQIfJxjVkAE-6KfjGlT7hKsVSVoeBLPkolYx3cgYn-ismFNF-pzZrF2J0EW78WTVDSC73Jr_o66OZaNis6eP71QtbIepwUhhviC6yJ4TITnm8iclnYAse0ikjc3taLZOP6PbZ7ADdELLQBpCcPsSXRpyCiZPs2uqKhLcZyg_V4-gCOf2lndzw4cirBrR1mmMwkTeQ5_9qbvLDu2egX8_4wD2eAbsXCau3HU9nNb2PfSpzAotXLbAPzgthkUARsl0s3R71FIkl"/>
+</div>
+<div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">McGill University</div>
+<h4 class="text-body-lg font-bold">Schulich Leader Award</h4>
+</div>
+</div>
+<div class="text-title-md font-bold text-secondary mb-sm">₹70,00,000</div>
+<div class="flex justify-between items-center text-label-md text-on-surface-variant">
+<span>Closes in 30 days</span>
+<a class="text-primary font-semibold" href="#">View Details</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sticky Sidebar (280px) -->
+<aside class="w-full lg:w-[320px] flex-shrink-0">
+<div class="sticky-sidebar space-y-lg">
+<div class="bg-white p-xl rounded-xl shadow-lg border border-outline-variant">
+<h3 class="text-title-md font-title-md mb-md">Award Summary</h3>
+<div class="space-y-sm mb-xl">
+<div class="flex justify-between">
+<span class="text-on-surface-variant text-body-md">Value</span>
+<span class="font-bold text-secondary">₹45,00,000</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant text-body-md">Duration</span>
+<span class="font-bold">2-4 Years</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant text-body-md">Deadline</span>
+<span class="font-bold text-error">Oct 15, 2024</span>
+</div>
+</div>
+<div class="space-y-md">
+<button class="w-full bg-primary text-on-primary py-md rounded-lg font-bold hover:opacity-90 transition-all flex items-center justify-center gap-sm" onclick="switchTab('eligibility')">
+<span class="material-symbols-outlined text-[20px]">fact_check</span> Check my eligibility
+                            </button>
+<button class="w-full border-2 border-primary text-primary py-md rounded-lg font-bold hover:bg-surface-container-low transition-all">
+                                Apply now
+                            </button>
+<button class="w-full flex items-center justify-center gap-sm py-sm text-on-surface-variant font-medium hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[20px]">headset_mic</span> Talk to counsellor
+                            </button>
+<button class="w-full flex items-center justify-center gap-sm py-sm text-on-surface-variant font-medium hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[20px]">favorite</span> Save to wishlist
+                            </button>
+</div>
+</div>
+<!-- Progress Indicator for complete profile -->
+<div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant">
+<h4 class="text-label-md font-bold mb-sm">Profile Match</h4>
+<div class="h-2 w-full bg-surface-container-high rounded-full mb-sm">
+<div class="h-2 bg-secondary rounded-full" style="width: 75%"></div>
+</div>
+<p class="text-label-sm text-on-surface-variant">75% complete. Add your SOP to increase your application score.</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low mt-xxl">
+<div class="w-full py-xl px-lg max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-xl">
+<div>
+<span class="text-title-md font-title-md text-on-surface block mb-xs">ScholarshipExpert</span>
+<p class="text-on-surface-variant font-label-md text-label-md">© 2024 ScholarshipExpert. Empowering academic success.</p>
+</div>
+<div class="flex gap-lg">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all" href="#">Contact Us</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all" href="#">About</a>
+</div>
+</div>
+</footer>
+<script>
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            // Remove active styles from all tabs
+            document.querySelectorAll('button[id^="tab-"]').forEach(tab => {
+                tab.classList.remove('text-primary', 'font-semibold', 'border-b-2', 'border-primary');
+                tab.classList.add('text-on-surface-variant', 'font-medium');
+            });
+
+            // Show current tab content
+            document.getElementById('content-' + tabId).classList.remove('hidden');
+
+            // Set active style for current tab
+            const activeTab = document.getElementById('tab-' + tabId);
+            activeTab.classList.add('text-primary', 'font-semibold', 'border-b-2', 'border-primary');
+            activeTab.classList.remove('text-on-surface-variant', 'font-medium');
+
+            // Scroll to tab area on mobile if needed
+            if(window.innerWidth < 1024) {
+                document.getElementById('tab-' + tabId).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+    </script>
+</body></html>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="index.html">Previous</a>
+    <a href="seventhpage.html">Next</a>
+</nav>

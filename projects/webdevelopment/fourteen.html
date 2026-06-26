@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Set New Password - ScholarPath</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "on-secondary-fixed": "#002113",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "primary-fixed": "#e2dfff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "tertiary-fixed": "#ffddb8",
+                    "surface-container-low": "#eff4ff",
+                    "surface-container": "#e5eeff",
+                    "surface": "#f8f9ff",
+                    "on-surface": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "primary": "#3525cd",
+                    "on-primary-fixed": "#0f0069",
+                    "primary-container": "#4f46e5",
+                    "surface-tint": "#4d44e3",
+                    "surface-container-highest": "#d3e4fe",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#6ffbbe",
+                    "secondary": "#006c49",
+                    "outline": "#777587",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#6cf8bb",
+                    "inverse-primary": "#c3c0ff",
+                    "tertiary-container": "#885500",
+                    "surface-container-high": "#dce9ff",
+                    "on-surface-variant": "#464555",
+                    "on-secondary-container": "#00714d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ffd4a4",
+                    "outline-variant": "#c7c4d8",
+                    "surface-variant": "#d3e4fe",
+                    "surface-dim": "#cbdbf5",
+                    "on-tertiary-fixed": "#2a1700",
+                    "inverse-surface": "#213145",
+                    "tertiary": "#684000",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-container": "#dad7ff",
+                    "on-error-container": "#93000a",
+                    "on-background": "#0b1c30",
+                    "error-container": "#ffdad6",
+                    "background": "#f8f9ff",
+                    "on-secondary-fixed-variant": "#005236"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "xl": "32px",
+                    "base": "4px",
+                    "container-max": "1280px",
+                    "xxl": "48px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "title-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9; /* Subtle light gray background as requested */
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom subtle shadow for level 1 surfaces */
+        .shadow-level-1 {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+        }
+        /* Custom hover lift */
+        .hover-lift:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            transform: translateY(-1px);
+        }
+        /* Smooth transitions */
+        .transition-standard {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- TopNavBar (Suppressed for focused task, but keeping Brand anchor for identity) -->
+<header class="w-full top-0 sticky bg-surface py-sm px-lg shadow-sm z-50">
+<div class="max-w-container-max mx-auto flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="school">school</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">ScholarPath</span>
+</div>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center px-margin-mobile py-xxl relative overflow-hidden">
+<!-- Subtle Ambient Background Decor -->
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 opacity-20 pointer-events-none">
+
+</div>
+<!-- Reset Password Card -->
+<div class="w-full max-w-[400px] bg-surface-container-lowest rounded-xl p-lg shadow-level-1 z-10 animate-fade-in-up">
+<div class="text-center mb-xl">
+<div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center mx-auto mb-md">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="lock_reset">lock_reset</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface mb-xs">Set new password</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Your identity has been verified. Please choose a strong, unique password.</p>
+</div>
+<form class="space-y-lg" id="reset-form">
+<!-- New Password Field -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant block ml-xs" for="new-password">New password</label>
+<div class="relative">
+<input class="w-full h-12 px-md py-sm bg-surface border border-outline-variant rounded-lg font-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-standard outline-none placeholder:text-outline" id="new-password" placeholder="Min. 8 characters" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+</div>
+<!-- Password Strength Meter (Segmented) -->
+<div class="flex gap-xs mt-sm" id="strength-meter">
+<div class="h-1.5 flex-1 rounded-full bg-surface-container-high transition-colors duration-500" data-segment="1"></div>
+<div class="h-1.5 flex-1 rounded-full bg-surface-container-high transition-colors duration-500" data-segment="2"></div>
+<div class="h-1.5 flex-1 rounded-full bg-surface-container-high transition-colors duration-500" data-segment="3"></div>
+<div class="h-1.5 flex-1 rounded-full bg-surface-container-high transition-colors duration-500" data-segment="4"></div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs" id="strength-label">Security strength: Low</p>
+</div>
+<!-- Confirm Password Field -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant block ml-xs" for="confirm-password">Confirm password</label>
+<div class="relative">
+<input class="w-full h-12 px-md py-sm bg-surface border border-outline-variant rounded-lg font-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-standard outline-none placeholder:text-outline" id="confirm-password" placeholder="Re-type password" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full h-12 bg-primary text-on-primary font-title-md text-title-md rounded-lg shadow-level-1 hover-lift active:scale-95 transition-standard mt-md flex items-center justify-center gap-sm" type="submit">
+                    Set new password
+                    <span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Back to Sign In Link -->
+<div class="text-center pt-md">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-xs" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_back">arrow_back</span>
+                        Back to login
+                    </a>
+</div>
+</form>
+</div>
+<!-- Background Image Accent -->
+<div class="fixed bottom-0 right-0 p-xl hidden md:block opacity-40">
+<div class="w-64 h-64 bg-contain bg-no-repeat bg-right-bottom" data-alt="A professional, minimalist close-up of a high-quality graduation cap resting on a glass desk in a modern corporate setting. The lighting is bright and high-key with cool blue and crisp white tones. The mood is aspirational and successful, representing the academic achievement ScholarPath facilitates." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2TsRW066i9S7A0gG4c9Zwf9QbEy7u-vgj4m7IfDsmSpbpc4JUIbnSGmlxLe7sJeY7_FMnOiqRaBLx7dwqaAMJ_Xs-Sf98s-K9A3D-_QiyyAvZZ0gGRW5BJ3pOoG9ZFT5yaNMYLjbdePXo0j4-uJR4_d9l59q98NVOr8xg01TqHscA4Df5AZl-LcLWvbq9uNTW1om7nWuxqhW0ttNFseiG53dbjZx8UgdtZFHx43YA-Y9EqAByG0DYLbj5JhYaA_Fy-Y8LPX-6QrjA')"></div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-xxl bg-surface-container-lowest py-xl px-gutter text-center border-t border-outline-variant/10">
+<div class="max-w-container-max mx-auto space-y-md">
+<div class="flex items-center justify-center gap-sm opacity-60 grayscale">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Enterprise Grade Security</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 ScholarPath. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Password Strength Logic
+        const passwordInput = document.getElementById('new-password');
+        const segments = document.querySelectorAll('[data-segment]');
+        const label = document.getElementById('strength-label');
+
+        passwordInput.addEventListener('input', (e) => {
+            const val = e.target.value;
+            let strength = 0;
+
+            if (val.length >= 8) strength++;
+            if (/[A-Z]/.test(val)) strength++;
+            if (/[0-9]/.test(val)) strength++;
+            if (/[^A-Za-z0-9]/.test(val)) strength++;
+
+            // Reset
+            segments.forEach(s => s.className = 'h-1.5 flex-1 rounded-full bg-surface-container-high transition-colors duration-500');
+
+            // Apply colors based on strength
+            const colors = ['bg-error', 'bg-tertiary-fixed-dim', 'bg-secondary-fixed-dim', 'bg-secondary'];
+            const labels = ['Too weak', 'Low', 'Fair', 'Strong', 'Excellent'];
+
+            for (let i = 0; i < strength; i++) {
+                segments[i].classList.remove('bg-surface-container-high');
+                segments[i].classList.add(colors[strength - 1]);
+            }
+
+            label.textContent = `Security strength: ${labels[strength]}`;
+            label.className = `font-label-sm text-label-sm mt-xs ${strength > 0 ? 'text-' + colors[strength-1].replace('bg-', '') : 'text-on-surface-variant'}`;
+        });
+
+        // Form Submit Interaction
+        const form = document.getElementById('reset-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            const originalContent = btn.innerHTML;
+
+            btn.disabled = true;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="progress_activity">progress_activity</span> Updating...';
+
+            // Simulating success
+            setTimeout(() => {
+                btn.classList.replace('bg-primary', 'bg-secondary');
+                btn.innerHTML = '<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span> Password Updated';
+
+                setTimeout(() => {
+                    alert('Password has been reset successfully. Redirecting to login...');
+                    // In a real app: window.location.href = '/login';
+                }, 1000);
+            }, 1500);
+        });
+
+        // Simple visibility toggles
+        document.querySelectorAll('button .material-symbols-outlined[data-icon="visibility"]').forEach(btnIcon => {
+            btnIcon.parentElement.addEventListener('click', () => {
+                const input = btnIcon.closest('.relative').querySelector('input');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    btnIcon.innerText = 'visibility_off';
+                } else {
+                    input.type = 'password';
+                    btnIcon.innerText = 'visibility';
+                }
+            });
+        });
+    </script>
+<style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+</body></html>
+
+
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="index.html">Previous</a>
+    <a href="fifteen.html">Next</a>
+</nav>
